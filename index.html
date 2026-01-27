@@ -8,31 +8,106 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to Monilla Website</h1>
+        <div class="header-container">
+            <div class="logo">
+                <img src="image/LOGO.png" alt="Monilla Concrete Logo" class="logo-img">
+                <div class="logo-text">
+                    <span class="logo-title">MONILLA</span>
+                    <span class="logo-subtitle">CONCRETE PRODUCTS MANUFACTURING</span>
+                </div>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#products" class="nav-link">Products</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#download" class="nav-link">Download Brochure</a>
+            </nav>
+            
+            <div class="header-right">
+                <div class="contact-info">
+                    <div class="phone">📞 +63 942 470 3729</div>
+                    <div class="phone">📞 +63 997 742 2101</div>
+                </div>
+                <button class="contact-btn">Contact Us</button>
+            </div>
+        </div>
     </header>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+
     <main>
-        <section id="home">
-            <h2>Home</h2>
-            <p>This is the home section of the website.</p>
+        <section id="home" class="carousel-section">
+            <div class="carousel">
+                <div class="carousel-container">
+                    <img src="image/ima.png" alt="Image " class="carousel-img active">
+                    <img src="image/ima1.png" alt="Image 1" class="carousel-img">
+                    <img src="image/ima2.png" alt="Image 2" class="carousel-img">
+                    <img src="image/ima3.png" alt="Image 3" class="carousel-img">
+                    <img src="image/ima4.png" alt="Image 4" class="carousel-img">
+                    
+                    <div class="carousel-overlay">
+                        <h1 class="hero-title">MONILLA</h1>
+                        <h2 class="hero-subtitle">Concrete Products</h2>
+                        <p class="hero-tagline">Quality Precast Concrete You Can Trust</p>
+                    </div>
+                </div>
+            </div>
+
+            <section id="products" class="products-section">
+                <div class="products-header">
+                    <p class="section-kicker">Our Products</p>
+                    <h2 class="products-title">Quality Precast Concrete You Can Trust</h2>
+                </div>
+                <div class="products-grid">
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="image/ima1.png" alt="Hollow Blocks">
+                            <div class="product-label">V-cut Precast Design</div>
+                        </div>
+                        <div class="product-body">
+                            <button class="product-btn btn-orange">View Details</button>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="image/ima2.png" alt="Solid Concrete Blocks">
+                            <div class="product-label">Conventional Precast Design</div>
+                        </div>
+                        <div class="product-body">
+                            <button class="product-btn btn-blue">View Details</button>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="image/ima3.png" alt="Custom Precast Orders">
+                            <div class="product-label">Shiplap Precast Design</div>
+                        </div>
+                        <div class="product-body">
+                            <button class="product-btn btn-navy">View Details</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
         </section>
         <section id="about">
             <h2>About</h2>
-            <p>This section contains information about the website.</p>
+            <p>This is the about section.</p>
+        </section>
+        <section id="projects">
+            <h2>Projects</h2>
+            <p>This is the projects section.</p>
         </section>
         <section id="contact">
             <h2>Contact</h2>
-            <p>Contact information goes here.</p>
+            <p>This is the contact section.</p>
+        </section>
+        <section id="download">
+            <h2>Download Brochure</h2>
+            <p>This is the download section.</p>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2023 Monilla Website</p>
-    </footer>
+
+    <script src="main.js"></script>
 </body>
 </html>
