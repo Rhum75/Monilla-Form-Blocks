@@ -1,0 +1,184 @@
+// --- Product Modal Functionality ---
+document.addEventListener('DOMContentLoaded', function () {
+  const modal = document.getElementById('product-modal');
+  const closeBtn = document.getElementById('productModalClose');
+  const img = document.getElementById('productModalImg');
+  const title = document.getElementById('productModalTitle');
+  const title2 = document.getElementById('productModalTitle2');
+  const type = document.getElementById('productModalType');
+  const type2 = document.getElementById('productModalType2');
+  const material = document.getElementById('productModalMaterial');
+  const category = document.getElementById('productModalCategory');
+  const category2 = document.getElementById('productModalCategory2');
+  const length = document.getElementById('productModalLength');
+  const height = document.getElementById('productModalHeight');
+  const width = document.getElementById('productModalWidth');
+  const weight = document.getElementById('productModalWeight');
+  const color = document.getElementById('productModalColor');
+  const durability = document.getElementById('productModalDurability');
+  const application = document.getElementById('productModalApplication');
+  const usage = document.getElementById('productModalUsage');
+
+  document.querySelectorAll('.view-more-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+      img.src = btn.getAttribute('data-img');
+      title.textContent = btn.getAttribute('data-title');
+      if (title2) title2.textContent = btn.getAttribute('data-title');
+      type.textContent = btn.getAttribute('data-type');
+      if (type2) type2.textContent = btn.getAttribute('data-type');
+      material.textContent = btn.getAttribute('data-material');
+      category.textContent = btn.getAttribute('data-category');
+      if (category2) category2.textContent = btn.getAttribute('data-category');
+      if (length) length.textContent = btn.getAttribute('data-length') || '';
+      if (height) height.textContent = btn.getAttribute('data-height') || '';
+      if (width) width.textContent = btn.getAttribute('data-width') || '';
+      if (weight) weight.textContent = btn.getAttribute('data-weight') || '';
+      if (color) color.textContent = btn.getAttribute('data-color') || '';
+      if (durability) durability.textContent = btn.getAttribute('data-durability') || '';
+      if (application) application.textContent = btn.getAttribute('data-application') || '';
+      if (usage) usage.textContent = btn.getAttribute('data-usage') || '';
+      modal.style.display = 'flex';
+    });
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', function () {
+    modal.style.display = 'none';
+  });
+
+  if (modal) {
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) modal.style.display = 'none';
+    });
+  }
+});
+
+// --- Carousel Functionality ---
+let currentImageIndex = 0;
+const carouselImages = document.querySelectorAll('.carousel-img');
+const totalImages = carouselImages.length;
+
+function showImage(index) {
+  carouselImages.forEach(img => img.classList.remove('active'));
+  carouselImages[index].classList.add('active');
+}
+
+function nextImage() {
+  currentImageIndex = (currentImageIndex + 1) % totalImages;
+  showImage(currentImageIndex);
+}
+
+setInterval(nextImage, 5000);
+
+// --- Product Gallery Modal Functionality ---
+const galleryImages = [];
+for (let i = 1; i <= 143; i++) {
+  galleryImages.push(`images/gallery_img/gal${i}.png`);
+}
+
+let galleryCurrent = 0;
+const openGalleryBtn = document.getElementById('open-gallery-modal');
+const galleryModal = document.getElementById('gallery-modal');
+const galleryModalImg = document.getElementById('gallery-modal-img');
+const galleryPrev = document.getElementById('gallery-prev');
+const galleryNext = document.getElementById('gallery-next');
+const closeGalleryBtn = document.getElementById('close-gallery-modal');
+
+function showGalleryImage(idx) {
+  galleryCurrent = (idx + galleryImages.length) % galleryImages.length;
+  galleryModalImg.src = galleryImages[galleryCurrent];
+}
+
+if (openGalleryBtn && galleryModal && galleryModalImg) {
+  openGalleryBtn.addEventListener('click', function () {
+    galleryModal.style.display = 'flex';
+    showGalleryImage(0);
+  });
+}
+
+if (closeGalleryBtn && galleryModal) {
+  closeGalleryBtn.addEventListener('click', function () {
+    galleryModal.style.display = 'none';
+  });
+}
+
+if (galleryPrev) {
+  galleryPrev.addEventListener('click', function () {
+    showGalleryImage(galleryCurrent - 1);
+  });
+}
+
+if (galleryNext) {
+  galleryNext.addEventListener('click', function () {
+    showGalleryImage(galleryCurrent + 1);
+  });
+}
+
+if (galleryModal) {
+  galleryModal.addEventListener('click', function (e) {
+    if (e.target === galleryModal) {
+      galleryModal.style.display = 'none';
+    }
+  });
+}
+
+// --- Product Video Gallery Modal Functionality ---
+const videoFiles = [
+  'videos/sample1.mp4',
+  'videos/sample2.mp4',
+  'videos/sample3.mp4'
+];
+const videoPosters = [
+  'images/home_product/conventional.png',
+  'images/home_product/shiplap.png',
+  'images/home_product/Gallery.png'
+];
+
+let videoCurrent = 0;
+const openVideoBtn = document.getElementById('open-video-modal');
+const videoModal = document.getElementById('video-modal');
+const videoModalPlayer = document.getElementById('video-modal-player');
+const videoPrev = document.getElementById('video-prev');
+const videoNext = document.getElementById('video-next');
+const closeVideoBtn = document.getElementById('close-video-modal');
+
+function showVideo(idx) {
+  videoCurrent = (idx + videoFiles.length) % videoFiles.length;
+  videoModalPlayer.src = videoFiles[videoCurrent];
+  videoModalPlayer.poster = videoPosters[videoCurrent];
+  videoModalPlayer.load();
+}
+
+if (openVideoBtn && videoModal && videoModalPlayer) {
+  openVideoBtn.addEventListener('click', function () {
+    videoModal.style.display = 'flex';
+    showVideo(0);
+  });
+}
+
+if (closeVideoBtn && videoModal) {
+  closeVideoBtn.addEventListener('click', function () {
+    videoModal.style.display = 'none';
+    videoModalPlayer.pause();
+  });
+}
+
+if (videoPrev) {
+  videoPrev.addEventListener('click', function () {
+    showVideo(videoCurrent - 1);
+  });
+}
+
+if (videoNext) {
+  videoNext.addEventListener('click', function () {
+    showVideo(videoCurrent + 1);
+  });
+}
+
+if (videoModal) {
+  videoModal.addEventListener('click', function (e) {
+    if (e.target === videoModal) {
+      videoModal.style.display = 'none';
+      videoModalPlayer.pause();
+    }
+  });
+}
