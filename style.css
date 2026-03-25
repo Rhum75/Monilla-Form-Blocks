@@ -13,8 +13,8 @@
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(30,40,80,0.18);
-  max-width: 720px;
-  width: 95vw;
+  max-width: 1100px;
+  width: 98vw;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -43,28 +43,35 @@
 .product-modal-content {
   display: flex;
   flex-direction: row;
-  gap: 2em;
-  padding: 2.2em 2.2em 1.5em 2.2em;
+  gap: 2.5em;
+  padding: 2.5em 2.5em 2em 2.5em;
+  align-items: flex-start;
 }
 .product-modal-img-col {
-  flex: 1 1 220px;
+  flex: 1 1 420px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  min-width: 340px;
+  max-width: 480px;
 }
 .product-modal-img {
-  width: 220px;
-  height: 160px;
+  width: 420px;
+  height: 320px;
+  max-width: 100%;
+  max-height: 70vh;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 12px;
   background: #f2f2f2;
   border: 1px solid #eee;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.12);
 }
 .product-modal-info-col {
-  flex: 2 1 320px;
+  flex: 2 1 420px;
   display: flex;
   flex-direction: column;
   gap: 0.7em;
+  min-width: 320px;
 }
 .product-modal-badge {
   background: #e6eaf7;
@@ -147,8 +154,9 @@
   }
   .product-modal-img {
     width: 100%;
-    height: 180px;
+    height: 220px;
     max-width: 100%;
+    max-height: 50vw;
   }
 }
 /* Products intro card styling */
@@ -377,7 +385,7 @@
 }
 /* Home CTA Section - Use same style as Products CTA */
 .home-cta-section {
-  margin: 2.5em 0 2em 0;
+  margin: 5em 0 5em 0;
   text-align: center;
 }
 .home-cta-section .cta-heading-row {

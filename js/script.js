@@ -1,3 +1,78 @@
+// --- Project CTA Buttons Scroll to Contact ---
+document.addEventListener('DOMContentLoaded', function () {
+  var quoteBtn = document.querySelector('.project-cta-btn.primary');
+  var callBtn = document.querySelector('.project-cta-btn.secondary');
+  var contactFormSection = document.querySelector('.contact-form-section');
+  if (quoteBtn && contactFormSection) {
+    quoteBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      contactFormSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  }
+  if (callBtn && contactFormSection) {
+    callBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      contactFormSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  }
+});
+// --- About Partner With Us Buttons Scroll ---
+document.addEventListener('DOMContentLoaded', function () {
+  var aboutPartnerContact = document.getElementById('about-partner-contact');
+  var aboutPartnerProducts = document.getElementById('about-partner-products');
+  var contactFormSection = document.querySelector('.contact-form-section');
+  var productsSection = document.getElementById('products');
+  if (aboutPartnerContact && contactFormSection) {
+    aboutPartnerContact.addEventListener('click', function (e) {
+      e.preventDefault();
+      contactFormSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  }
+  if (aboutPartnerProducts && productsSection) {
+    aboutPartnerProducts.addEventListener('click', function (e) {
+      e.preventDefault();
+      productsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+});
+// --- Scroll to Contact Form from Home CTA Button ---
+document.addEventListener('DOMContentLoaded', function () {
+  var ctaBtn = document.querySelector('.cta-btn.cta-btn-blue');
+  var contactFormSection = document.querySelector('.contact-form-section');
+  if (ctaBtn && contactFormSection) {
+    ctaBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      contactFormSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  }
+});
+// --- Scroll to Contact Form from Product Modal ---
+document.addEventListener('DOMContentLoaded', function () {
+  var modalContactBtns = document.querySelectorAll('.product-modal-btn.secondary, .product-modal-btn.primary');
+  var contactFormSection = document.querySelector('.contact-form-section');
+  if (modalContactBtns && contactFormSection) {
+    modalContactBtns.forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.getElementById('product-modal').style.display = 'none';
+        setTimeout(function () {
+          contactFormSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 200);
+      });
+    });
+  }
+});
+// --- Scroll to Contact Form on Header Button Click ---
+document.addEventListener('DOMContentLoaded', function () {
+  var contactBtn = document.getElementById('contactBtn');
+  var contactFormSection = document.querySelector('.contact-form-section');
+  if (contactBtn && contactFormSection) {
+    contactBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      contactFormSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  }
+});
 // --- Product Modal Functionality ---
 document.addEventListener('DOMContentLoaded', function () {
   const modal = document.getElementById('product-modal');
@@ -122,11 +197,10 @@ if (galleryModal) {
 }
 
 // --- Product Video Gallery Modal Functionality ---
-const videoFiles = [
-  'videos/sample1.mp4',
-  'videos/sample2.mp4',
-  'videos/sample3.mp4'
-];
+const videoFiles = [];
+for (let i = 1; i <= 22; i++) {
+  videoFiles.push(`videos/vid${i}.mp4`);
+}
 const videoPosters = [
   'images/home_product/conventional.png',
   'images/home_product/shiplap.png',
@@ -144,7 +218,8 @@ const closeVideoBtn = document.getElementById('close-video-modal');
 function showVideo(idx) {
   videoCurrent = (idx + videoFiles.length) % videoFiles.length;
   videoModalPlayer.src = videoFiles[videoCurrent];
-  videoModalPlayer.poster = videoPosters[videoCurrent];
+  // No poster image
+  videoModalPlayer.removeAttribute('poster');
   videoModalPlayer.load();
 }
 
