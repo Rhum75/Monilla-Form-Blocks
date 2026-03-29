@@ -257,3 +257,39 @@ if (videoModal) {
     }
   });
 }
+
+// === Scroll to Top/Bottom Buttons ===
+document.addEventListener('DOMContentLoaded', function () {
+  const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+  const scrollToBottomBtn = document.getElementById('scrollToBottomBtn');
+
+  function checkScrollButtons() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
+    // Show top button if scrolled down 200px
+    if (scrollY > 200) {
+      scrollToTopBtn.classList.add('visible');
+    } else {
+      scrollToTopBtn.classList.remove('visible');
+    }
+    // Show bottom button if not near bottom (200px from bottom)
+    if (scrollY + windowHeight < docHeight - 200) {
+      scrollToBottomBtn.classList.add('visible');
+    } else {
+      scrollToBottomBtn.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', checkScrollButtons);
+  window.addEventListener('resize', checkScrollButtons);
+  checkScrollButtons();
+
+  scrollToTopBtn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  scrollToBottomBtn.addEventListener('click', function () {
+    window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+  });
+});
+// === End Scroll to Top/Bottom Buttons ===
