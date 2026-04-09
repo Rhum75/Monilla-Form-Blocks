@@ -1,3 +1,50 @@
+// --- Mobile Navigation Toggle ---
+document.addEventListener('DOMContentLoaded', function () {
+  var mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  var navMenu = document.querySelector('.nav-menu');
+
+  if (!mobileMenuToggle || !navMenu) {
+    return;
+  }
+
+  function closeMobileMenu() {
+    navMenu.classList.remove('mobile-open');
+    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('mobile-menu-open');
+  }
+
+  mobileMenuToggle.addEventListener('click', function () {
+    var isOpen = navMenu.classList.toggle('mobile-open');
+    mobileMenuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    document.body.classList.toggle('mobile-menu-open', isOpen);
+  });
+
+  navMenu.querySelectorAll('.nav-link').forEach(function (link) {
+    link.addEventListener('click', closeMobileMenu);
+  });
+
+  document.addEventListener('click', function (event) {
+    if (!navMenu.classList.contains('mobile-open')) {
+      return;
+    }
+    if (!navMenu.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+      closeMobileMenu();
+    }
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && navMenu.classList.contains('mobile-open')) {
+      closeMobileMenu();
+    }
+  });
+
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 900) {
+      closeMobileMenu();
+    }
+  });
+});
+
 // --- Project CTA Buttons Scroll to Contact ---
 document.addEventListener('DOMContentLoaded', function () {
   var quoteBtn = document.querySelector('.project-cta-btn.primary');

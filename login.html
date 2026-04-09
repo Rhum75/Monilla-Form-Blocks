@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Precast Solutions | Log In</title>
+    <link rel="stylesheet" href="auth.css" />
+  </head>
+  <body class="auth-page">
+    <div class="auth-overlay"></div>
+
+    <main class="auth-main">
+      <section class="auth-card" aria-labelledby="loginTitle">
+        <div class="brand-wrap">
+          <div class="brand-mark" aria-hidden="true">PS</div>
+          <h1 id="loginTitle" class="auth-title">Precast Solutions System</h1>
+        </div>
+
+        <form
+          id="loginForm"
+          class="auth-form"
+          action="#"
+          method="post"
+          novalidate
+        >
+          <label class="input-row" for="loginIdentity">
+            <span class="input-icon" aria-hidden="true">U</span>
+            <input
+              id="loginIdentity"
+              name="identity"
+              type="text"
+              placeholder="Username or Email"
+              autocomplete="username"
+              required
+            />
+          </label>
+
+          <label class="input-row" for="loginPassword">
+            <span class="input-icon" aria-hidden="true">L</span>
+            <input
+              id="loginPassword"
+              name="password"
+              type="password"
+              placeholder="Password"
+              autocomplete="current-password"
+              required
+            />
+            <button type="button" class="eye-btn" aria-label="Show password">
+              O
+            </button>
+          </label>
+
+          <a href="#" class="forgot-link">Forgot Password?</a>
+
+          <button type="submit" class="btn btn-primary">Log In</button>
+          <a href="signup.html" class="btn btn-secondary">Create Account</a>
+          <p class="form-message" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="auth-footer">
+      <p>(c) 2026 Precast Solutions | Contact us: info@precastsolutions.com</p>
+    </footer>
+    <script src="js/validation.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>

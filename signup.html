@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Precast Solutions | Sign Up</title>
+    <link rel="stylesheet" href="auth.css" />
+  </head>
+  <body class="auth-page">
+    <div class="auth-overlay"></div>
+
+    <main class="auth-main">
+      <section class="auth-card" aria-labelledby="signupTitle">
+        <div class="brand-wrap">
+          <div class="brand-mark" aria-hidden="true">PS</div>
+          <h1 id="signupTitle" class="auth-title">Create Your Account</h1>
+        </div>
+
+        <form
+          id="signupForm"
+          class="auth-form"
+          action="#"
+          method="post"
+          novalidate
+        >
+          <label class="input-row" for="signupName">
+            <span class="input-icon" aria-hidden="true">U</span>
+            <input
+              id="signupName"
+              name="name"
+              type="text"
+              placeholder="Full Name"
+              autocomplete="name"
+              required
+            />
+          </label>
+
+          <label class="input-row" for="signupEmail">
+            <span class="input-icon" aria-hidden="true">@</span>
+            <input
+              id="signupEmail"
+              name="email"
+              type="email"
+              placeholder="Email Address"
+              autocomplete="email"
+              required
+            />
+          </label>
+
+          <label class="input-row" for="signupPassword">
+            <span class="input-icon" aria-hidden="true">L</span>
+            <input
+              id="signupPassword"
+              name="password"
+              type="password"
+              placeholder="Password"
+              autocomplete="new-password"
+              required
+            />
+          </label>
+
+          <label class="input-row" for="signupConfirmPassword">
+            <span class="input-icon" aria-hidden="true">L</span>
+            <input
+              id="signupConfirmPassword"
+              name="confirmPassword"
+              type="password"
+              placeholder="Confirm Password"
+              autocomplete="new-password"
+              required
+            />
+          </label>
+
+          <button type="submit" class="btn btn-primary">Sign Up</button>
+          <a href="login.html" class="btn btn-secondary">Back to Log In</a>
+          <p class="form-message" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="auth-footer">
+      <p>(c) 2026 Precast Solutions | Contact us: info@precastsolutions.com</p>
+    </footer>
+    <script src="js/validation.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>
