@@ -30,3 +30,29 @@ function isValidEmail(string $email): bool
 {
     return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
 }
+
+function requireMethod(string $method): void
+{
+    if (strtoupper($_SERVER['REQUEST_METHOD'] ?? '') !== strtoupper($method)) {
+        jsonResponse(['message' => 'Method not allowed.'], 405);
+    }
+}
+
+function currentUser(): ?array
+{
+    if (!isset($_SESSION['user']) || !is_array($_SESSION['user'])) {
+        return null;
+    }
+
+    return $_SESSION['user'];
+}
+
+function requireAuthUser(): array
+{
+    $user = currentUser();
+    if ($user === null) {
+        jsonResponse(['message' => 'Please log in first.'], 401);
+    }
+
+    return $user;
+}

@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart | Monilla Website</title>
+    <link rel="icon" type="image/png" href="images/home_product/LOGO.png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="project-wrapper">
+      <header>
+        <div class="header-container">
+          <div class="logo">
+            <img
+              src="images/home_product/LOGO.png"
+              alt="Monilla Concrete Logo"
+              class="logo-img"
+            />
+            <div class="logo-text">
+              <span class="logo-title">MONILLA</span>
+              <span class="logo-subtitle">CONCRETE PRODUCTS MANUFACTURING</span>
+            </div>
+          </div>
+
+          <nav class="nav-menu">
+            <a href="index.html#home" class="nav-link">Home</a>
+            <a href="index.html#products" class="nav-link">Products</a>
+            <a href="index.html#about" class="nav-link">About</a>
+            <a href="index.html#projects" class="nav-link">Projects</a>
+            <a href="index.html#contact" class="nav-link">Contact</a>
+          </nav>
+
+          <button
+            class="mobile-menu-toggle"
+            id="mobileMenuToggle"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            type="button"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <div class="header-right">
+            <button
+              class="header-icon-btn"
+              id="cartBtn"
+              aria-label="Shopping cart"
+              type="button"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path
+                  d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                ></path>
+              </svg>
+              <span class="header-icon-badge hidden" id="cartBadge">0</span>
+            </button>
+
+            <div class="header-user-wrap" id="headerUserWrap">
+              <button
+                class="header-icon-btn"
+                id="headerUserBtn"
+                aria-label="User account"
+                type="button"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </button>
+              <div class="header-user-dropdown hidden" id="headerUserDropdown">
+                <a href="profile.html" class="header-dropdown-item"
+                  >My Profile</a
+                >
+                <button
+                  class="header-dropdown-item header-dropdown-logout"
+                  id="headerLogoutBtn"
+                  type="button"
+                >
+                  Logout
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="cart-page" id="cartPage">
+        <div class="cart-page-header">
+          <h1>Your Cart</h1>
+          <p>
+            Review selected precast products before contacting us for a quote.
+          </p>
+        </div>
+
+        <div class="cart-layout">
+          <section class="cart-items-panel">
+            <div class="cart-panel-title-row">
+              <h2 class="cart-panel-title">Selected Products</h2>
+              <a class="cart-panel-link" href="index.html#products">Add More</a>
+            </div>
+            <div id="cartItemsList"></div>
+          </section>
+
+          <aside class="cart-summary-panel">
+            <h2 class="cart-summary-title">Cart Summary</h2>
+            <div class="cart-summary-row">
+              <span>Total Items</span>
+              <span class="cart-summary-value" id="cartTotalItems">0</span>
+            </div>
+            <div class="cart-summary-row">
+              <span>Product Types</span>
+              <span class="cart-summary-value" id="cartTotalTypes">0</span>
+            </div>
+            <div class="cart-summary-row">
+              <span>Subtotal</span>
+              <span class="cart-summary-value" id="cartSubtotal">PHP 0.00</span>
+            </div>
+            <div class="cart-summary-row cart-summary-row-total">
+              <span>Estimated Total</span>
+              <span
+                class="cart-summary-value cart-summary-total"
+                id="cartGrandTotal"
+                >PHP 0.00</span
+              >
+            </div>
+            <p class="cart-summary-note">
+              Final total may vary based on delivery and custom requirements.
+            </p>
+
+            <div class="cart-actions">
+              <a class="cart-action-btn primary" href="index.html#contact"
+                >Proceed to Inquiry</a
+              >
+              <a class="cart-action-btn" href="index.html#products"
+                >Continue Shopping</a
+              >
+              <button
+                class="cart-action-btn danger"
+                id="clearCartBtn"
+                type="button"
+              >
+                Clear Cart
+              </button>
+            </div>
+          </aside>
+        </div>
+      </main>
+    </div>
+
+    <script src="js/cart.js"></script>
+    <script src="js/header-auth.js"></script>
+  </body>
+</html>

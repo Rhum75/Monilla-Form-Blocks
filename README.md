@@ -1,6 +1,6 @@
 # Monilla-Form-Blocks
 
-Monilla one-page website with starter authentication pages and PHP + MySQL backend files for sign up and login.
+Monilla one-page website upgraded into a dynamic ordering system with authentication, cart, checkout, and order history.
 
 ## Current clean structure
 
@@ -27,11 +27,16 @@ Monilla-Form-Blocks/
 │   ├── signup.php
 │   ├── login.php
 │   ├── logout.php
-│   └── me.php
+│   ├── me.php
+│   ├── products.php
+│   ├── cart.php
+│   ├── checkout.php
+│   └── orders.php
 ├── database/
 │   ├── precast.sql
 │   └── migrations/
-│       └── 001_create_users.sql
+│       ├── 001_create_users.sql
+│       └── 002_create_commerce_tables.sql
 └── storage/
 	└── logs/
 ```
@@ -41,8 +46,9 @@ Monilla-Form-Blocks/
 1. Copy `.env.example` to `.env`.
 2. Edit `.env` with your own MySQL credentials.
 3. Create database/tables by importing `database/precast.sql` in phpMyAdmin or MySQL CLI.
-4. Serve this project with Apache/XAMPP/WAMP so PHP endpoints run.
-5. Open `login.html` or `signup.html` from your local server URL.
+4. If your DB already exists, run `database/migrations/002_create_commerce_tables.sql`.
+5. Serve this project with Apache/XAMPP/WAMP so PHP endpoints run.
+6. Open `index.html` from your local server URL.
 
 Example local URL:
 
@@ -50,15 +56,27 @@ Example local URL:
 http://localhost/Monilla-Form-Blocks/login.html
 ```
 
-## Auth endpoints
+## Backend endpoints
 
 - `POST backend/signup.php`
 - `POST backend/login.php`
 - `POST backend/logout.php`
 - `GET backend/me.php`
+- `GET backend/products.php`
+- `GET|POST|PATCH|DELETE backend/cart.php`
+- `POST backend/checkout.php`
+- `GET backend/orders.php`
+
+## Implemented dynamic modules
+
+- Account registration and login session
+- Product listing with database-backed prices
+- Add to cart, quantity updates, remove item
+- Checkout and order creation
+- Order history display for logged-in users
 
 ## Notes
 
-- Keep `index.html` as your single-page main website.
+- `index.html` is the storefront + ordering interface.
 - `login.html` and `signup.html` are separate auth pages.
 - Passwords are stored hashed using `password_hash()`.

@@ -40,6 +40,11 @@
             }
             var isPassword = input.getAttribute('type') === 'password';
             input.setAttribute('type', isPassword ? 'text' : 'password');
+            btn.classList.toggle('is-visible', isPassword);
+            btn.setAttribute(
+                'aria-label',
+                isPassword ? (btn.dataset.hideLabel || 'Hide password') : (btn.dataset.showLabel || 'Show password')
+            );
         });
     });
 

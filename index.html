@@ -30,9 +30,6 @@
             <a href="#about" class="nav-link">About</a>
             <a href="#projects" class="nav-link">Projects</a>
             <a href="#contact" class="nav-link">Contact</a>
-            <a href="login.html" class="nav-link">Log In</a>
-            <a href="signup.html" class="nav-link">Sign Up</a>
-            <a href="#download" class="nav-link">Download Brochure</a>
           </nav>
 
           <button
@@ -47,11 +44,95 @@
           </button>
 
           <div class="header-right">
-            <div class="contact-info">
-              <div class="phone">📞 +63 976 012 4416</div>
-              <div class="phone">📞 +63 967 528 5806</div>
+            <!-- Cart Icon -->
+            <button
+              class="header-icon-btn"
+              id="cartBtn"
+              type="button"
+              aria-label="Shopping cart"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path
+                  d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                ></path>
+              </svg>
+              <span class="header-icon-badge hidden" id="cartBadge">0</span>
+            </button>
+            <!-- User / Profile Icon -->
+            <div class="header-user-wrap" id="headerUserWrap">
+              <button
+                class="header-icon-btn"
+                id="headerUserBtn"
+                aria-label="User account"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </button>
+              <div class="header-user-dropdown hidden" id="headerUserDropdown">
+                <a href="profile.html" class="header-dropdown-item">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                  My Profile
+                </a>
+                <button
+                  class="header-dropdown-item header-dropdown-logout"
+                  id="headerLogoutBtn"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                  </svg>
+                  Logout
+                </button>
+              </div>
             </div>
-            <button class="contact-btn" id="contactBtn">Contact Us</button>
           </div>
         </div>
       </header>
@@ -148,24 +229,37 @@
                 provides a simple and reliable solution for general wall
                 construction.
               </div>
-              <button
-                class="product-btn view-more-btn"
-                data-title="Precast Wall Form Block – Standard"
-                data-type="Conventional Design"
-                data-material="Concrete"
-                data-category="Precast Construction Material"
-                data-length="1 meter"
-                data-height="25 cm"
-                data-width='3", 4", 5", 6", 8"'
-                data-weight="15 kg"
-                data-color="Gray"
-                data-durability="Long-lasting and weather-resistant"
-                data-application="Wall construction for all building types"
-                data-usage="Suitable for load-bearing and partition walls"
-                data-img="images/home_product/conventional.png"
-              >
-                View More &gt;
-              </button>
+              <div class="product-card-actions">
+                <button
+                  class="product-btn view-more-btn"
+                  data-title="Precast Wall Form Block – Standard"
+                  data-type="Conventional Design"
+                  data-material="Concrete"
+                  data-category="Precast Construction Material"
+                  data-length="1 meter"
+                  data-height="25 cm"
+                  data-width='3", 4", 5", 6", 8"'
+                  data-weight="15 kg"
+                  data-color="Gray"
+                  data-durability="Long-lasting and weather-resistant"
+                  data-application="Wall construction for all building types"
+                  data-usage="Suitable for load-bearing and partition walls"
+                  data-img="images/home_product/conventional.png"
+                >
+                  View More &gt;
+                </button>
+                <button
+                  class="product-btn add-to-cart-btn"
+                  type="button"
+                  data-id="conventional-design"
+                  data-title="Precast Wall Form Block – Standard"
+                  data-type="Conventional Design"
+                  data-img="images/home_product/conventional.png"
+                  data-price="170"
+                >
+                  Add to Cart
+                </button>
+              </div>
             </div>
             <div class="product-card">
               <img
@@ -179,24 +273,37 @@
                 clean, flat wall surface with a visible V line for a modern and
                 uniform appearance.
               </div>
-              <button
-                class="product-btn view-more-btn"
-                data-title="Precast Wall Form Block – V-Cut"
-                data-type="V-Cut Design"
-                data-material="Concrete"
-                data-category="Precast Construction Material"
-                data-length="1 meter"
-                data-height="25 cm"
-                data-width='3", 4", 5", 6", 8"'
-                data-weight="15 kg"
-                data-color="Gray"
-                data-durability="Long-lasting and weather-resistant"
-                data-application="Decorative and contemporary walls"
-                data-usage="Can be installed horizontally or vertically; creates a flat surface with clean V-joint lines for modern aesthetic"
-                data-img="images/home_product/vcut.png"
-              >
-                View More &gt;
-              </button>
+              <div class="product-card-actions">
+                <button
+                  class="product-btn view-more-btn"
+                  data-title="Precast Wall Form Block – V-Cut"
+                  data-type="V-Cut Design"
+                  data-material="Concrete"
+                  data-category="Precast Construction Material"
+                  data-length="1 meter"
+                  data-height="25 cm"
+                  data-width='3", 4", 5", 6", 8"'
+                  data-weight="15 kg"
+                  data-color="Gray"
+                  data-durability="Long-lasting and weather-resistant"
+                  data-application="Decorative and contemporary walls"
+                  data-usage="Can be installed horizontally or vertically; creates a flat surface with clean V-joint lines for modern aesthetic"
+                  data-img="images/home_product/vcut.png"
+                >
+                  View More &gt;
+                </button>
+                <button
+                  class="product-btn add-to-cart-btn"
+                  type="button"
+                  data-id="v-cut-design"
+                  data-title="Precast Wall Form Block – V-Cut"
+                  data-type="V-Cut Design"
+                  data-img="images/home_product/vcut.png"
+                  data-price="170"
+                >
+                  Add to Cart
+                </button>
+              </div>
             </div>
             <div class="product-card">
               <img
@@ -210,24 +317,37 @@
                 that helps guide water runoff and provides a traditional
                 horizontal wall finish.
               </div>
-              <button
-                class="product-btn view-more-btn"
-                data-title="Precast Wall Form Block – Shiplap"
-                data-type="Shiplap Design"
-                data-material="Concrete (non-reinforced)"
-                data-category="Precast Construction Material"
-                data-length="1 meter"
-                data-height="25 cm"
-                data-width='3", 4", 5", 6", 8"'
-                data-weight="15 kg"
-                data-color="Gray"
-                data-durability="Long-lasting and weather-resistant; curved lip helps water runoff and reduces moisture damage"
-                data-application="Decorative and traditional-style walls"
-                data-usage="Installed horizontally; curved lip overlaps for tighter fit and better rainfall resistance; gives a softer, rustic look"
-                data-img="images/home_product/shiplap.png"
-              >
-                View More &gt;
-              </button>
+              <div class="product-card-actions">
+                <button
+                  class="product-btn view-more-btn"
+                  data-title="Precast Wall Form Block – Shiplap"
+                  data-type="Shiplap Design"
+                  data-material="Concrete (non-reinforced)"
+                  data-category="Precast Construction Material"
+                  data-length="1 meter"
+                  data-height="25 cm"
+                  data-width='3", 4", 5", 6", 8"'
+                  data-weight="15 kg"
+                  data-color="Gray"
+                  data-durability="Long-lasting and weather-resistant; curved lip helps water runoff and reduces moisture damage"
+                  data-application="Decorative and traditional-style walls"
+                  data-usage="Installed horizontally; curved lip overlaps for tighter fit and better rainfall resistance; gives a softer, rustic look"
+                  data-img="images/home_product/shiplap.png"
+                >
+                  View More &gt;
+                </button>
+                <button
+                  class="product-btn add-to-cart-btn"
+                  type="button"
+                  data-id="shiplap-design"
+                  data-title="Precast Wall Form Block – Shiplap"
+                  data-type="Shiplap Design"
+                  data-img="images/home_product/shiplap.png"
+                  data-price="170"
+                >
+                  Add to Cart
+                </button>
+              </div>
             </div>
           </div>
 
@@ -316,103 +436,75 @@
             </div>
           </div>
 
-          <div class="product-gallery-section">
-            <h3 class="product-gallery-title">Product Gallery</h3>
-            <div class="product-gallery-row">
-              <img
-                class="product-gallery-img"
-                src="images/gallery_img/gal1.png"
-                alt="Gallery 1"
-              />
-              <img
-                class="product-gallery-img"
-                src="images/gallery_img/gal2.png"
-                alt="Gallery 2"
-              />
-              <img
-                class="product-gallery-img"
-                src="images/gallery_img/gal3.png"
-                alt="Gallery 3"
-              />
+          <div class="product-media-showcase">
+            <div class="product-gallery-section">
+              <h3 class="product-gallery-title">Product Gallery</h3>
+              <p class="product-gallery-subtitle">
+                Browse our <strong>precast concrete products</strong>
+              </p>
+              <div class="product-gallery-panel">
+                <div class="product-gallery-panel-title">PRODUCT GALLERY</div>
+                <p class="product-gallery-panel-subtitle">
+                  Browse our precast concrete products
+                </p>
+                <div class="product-gallery-row">
+                  <img
+                    class="product-gallery-img"
+                    src="images/gallery_img/gal1.png"
+                    alt="Gallery 1"
+                  />
+                  <img
+                    class="product-gallery-img"
+                    src="images/gallery_img/gal2.png"
+                    alt="Gallery 2"
+                  />
+                  <img
+                    class="product-gallery-img"
+                    src="images/gallery_img/gal3.png"
+                    alt="Gallery 3"
+                  />
+                </div>
+              </div>
+              <button
+                class="product-btn product-gallery-btn"
+                id="open-gallery-modal"
+              >
+                Click to View Gallery &gt;
+              </button>
             </div>
-            <button
-              class="product-btn product-gallery-btn"
-              id="open-gallery-modal"
-            >
-              Click to View Gallery &gt;
-            </button>
-          </div>
 
-          <!-- Product Video Gallery Section -->
-          <div
-            class="product-video-gallery-section"
-            style="margin: 5em 0 5em 0; text-align: center"
-          >
-            <h3
-              class="product-gallery-title"
-              style="
-                font-size: 1.5rem;
-                font-weight: 700;
-                color: #1856a7;
-                margin-bottom: 1em;
-              "
-            >
-              Product Video Gallery
-            </h3>
-            <div
-              class="product-video-gallery-row"
-              style="
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 1.5em;
-                margin-bottom: 1em;
-              "
-            >
-              <video
-                src="videos/vid1.mp4"
-                width="140"
-                height="80"
-                style="
-                  border-radius: 6px;
-                  border: 1px solid #ddd;
-                  object-fit: cover;
-                  background: #000;
-                "
-                muted
-              ></video>
-              <video
-                src="videos/vid2.mp4"
-                width="140"
-                height="80"
-                style="
-                  border-radius: 6px;
-                  border: 1px solid #ddd;
-                  object-fit: cover;
-                  background: #000;
-                "
-                muted
-              ></video>
-              <video
-                src="videos/vid3.mp4"
-                width="140"
-                height="80"
-                style="
-                  border-radius: 6px;
-                  border: 1px solid #ddd;
-                  object-fit: cover;
-                  background: #000;
-                "
-                muted
-              ></video>
+            <div class="media-divider" aria-hidden="true"></div>
+
+            <!-- Product Video Gallery Section -->
+            <div class="product-video-gallery-section">
+              <h3 class="product-gallery-title">Video Gallery</h3>
+              <p class="product-gallery-subtitle">
+                Watch our <strong>precast installation videos</strong>
+              </p>
+              <div class="product-video-gallery-row">
+                <figure class="video-thumb-card">
+                  <video src="videos/vid1.mp4" muted></video>
+                  <span class="video-play-badge" aria-hidden="true"></span>
+                  <figcaption>Video</figcaption>
+                </figure>
+                <figure class="video-thumb-card">
+                  <video src="videos/vid2.mp4" muted></video>
+                  <span class="video-play-badge" aria-hidden="true"></span>
+                  <figcaption>Video</figcaption>
+                </figure>
+                <figure class="video-thumb-card">
+                  <video src="videos/vid3.mp4" muted></video>
+                  <span class="video-play-badge" aria-hidden="true"></span>
+                  <figcaption>Slabs</figcaption>
+                </figure>
+              </div>
+              <button
+                class="product-btn product-gallery-btn"
+                id="open-video-modal"
+              >
+                Click to View Videos &gt;
+              </button>
             </div>
-            <button
-              class="product-btn"
-              id="open-video-modal"
-              style="margin: 0 auto; display: inline-block"
-            >
-              Click to View Videos &gt;
-            </button>
           </div>
 
           <!-- Video Gallery Modal -->
@@ -1200,9 +1292,6 @@
               <li><a href="#about">About Us</a></li>
               <li><a href="#projects">Projects</a></li>
               <li><a href="#contact">Contact</a></li>
-              <li><a href="login.html">Log In</a></li>
-              <li><a href="signup.html">Sign Up</a></li>
-              <li><a href="#">Brochure</a></li>
             </ul>
           </div>
           <div class="footer-col">
@@ -1240,7 +1329,9 @@
         </div>
       </footer>
     </div>
+    <script src="js/cart.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/header-auth.js"></script>
   </body>
   <!-- Scroll to Top/Bottom Buttons -->
   <button id="scrollToTopBtn" class="scroll-btn" title="Go to top">▲</button>

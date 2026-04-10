@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Precast Solutions | Log In</title>
+    <title>MCPM | Log In</title>
     <link rel="stylesheet" href="auth.css" />
+    <link rel="icon" type="image/png" href="images/home_product/LOGO.png" />
   </head>
   <body class="auth-page">
     <div class="auth-overlay"></div>
@@ -12,8 +13,10 @@
     <main class="auth-main">
       <section class="auth-card" aria-labelledby="loginTitle">
         <div class="brand-wrap">
-          <div class="brand-mark" aria-hidden="true">PS</div>
-          <h1 id="loginTitle" class="auth-title">Precast Solutions System</h1>
+          <div class="brand-mark">
+            <img src="images/home_product/LOGO.png" alt="MCPM logo" />
+          </div>
+          <h1 id="loginTitle" class="auth-title">LOGIN</h1>
         </div>
 
         <form
@@ -24,7 +27,13 @@
           novalidate
         >
           <label class="input-row" for="loginIdentity">
-            <span class="input-icon" aria-hidden="true">U</span>
+            <span class="input-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5Zm0 2c-4.42 0-8 2.69-8 6v1h16v-1c0-3.31-3.58-6-8-6Z"
+                />
+              </svg>
+            </span>
             <input
               id="loginIdentity"
               name="identity"
@@ -36,7 +45,13 @@
           </label>
 
           <label class="input-row" for="loginPassword">
-            <span class="input-icon" aria-hidden="true">L</span>
+            <span class="input-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M17 10h-1V8a4 4 0 1 0-8 0v2H7a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2Zm-6 6.73V18a1 1 0 1 0 2 0v-1.27a2 2 0 1 0-2 0ZM10 10V8a2 2 0 1 1 4 0v2h-4Z"
+                />
+              </svg>
+            </span>
             <input
               id="loginPassword"
               name="password"
@@ -45,8 +60,33 @@
               autocomplete="current-password"
               required
             />
-            <button type="button" class="eye-btn" aria-label="Show password">
-              O
+            <button
+              type="button"
+              class="eye-btn"
+              aria-label="Show password"
+              data-show-label="Show password"
+              data-hide-label="Hide password"
+            >
+              <svg
+                class="eye-open"
+                viewBox="0 0 24 24"
+                focusable="false"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 5c-5.08 0-9.27 3.11-11 7 1.73 3.89 5.92 7 11 7s9.27-3.11 11-7c-1.73-3.89-5.92-7-11-7Zm0 11.5A4.5 4.5 0 1 1 12 7.5a4.5 4.5 0 0 1 0 9Zm0-7.2A2.7 2.7 0 1 0 12 14.7a2.7 2.7 0 0 0 0-5.4Z"
+                />
+              </svg>
+              <svg
+                class="eye-closed"
+                viewBox="0 0 24 24"
+                focusable="false"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4.71 3.29 3.29 4.71l2.17 2.17C3.53 8.14 2.02 9.92 1 12c1.73 3.89 5.92 7 11 7 2.12 0 4.08-.54 5.77-1.47l2.52 2.52 1.41-1.41L4.71 3.29ZM12 17c-3.66 0-6.76-2.17-8.29-5 0-0.01.01-.01.01-.02.89-1.53 2.23-2.84 3.88-3.69l1.57 1.57A4.49 4.49 0 0 0 12 16.5c.79 0 1.53-.2 2.18-.54l1.51 1.51A9.72 9.72 0 0 1 12 17Zm0-10c5.08 0 9.27 3.11 11 7-.69 1.56-1.81 2.98-3.22 4.11l-1.45-1.45A9.81 9.81 0 0 0 20.29 12c-1.53-2.83-4.63-5-8.29-5-.94 0-1.84.14-2.69.4L7.74 5.83A11.6 11.6 0 0 1 12 7Zm-.01 2.2 2.52 2.52c.12-.3.19-.62.19-.97a2.7 2.7 0 0 0-2.7-2.7c-.35 0-.67.07-.96.18l.95.97Zm-2.64.53L12.27 12a2.7 2.7 0 0 1-2.92-2.27Z"
+                />
+              </svg>
             </button>
           </label>
 
@@ -60,7 +100,7 @@
     </main>
 
     <footer class="auth-footer">
-      <p>(c) 2026 Precast Solutions | Contact us: info@precastsolutions.com</p>
+      <p>© 2026 MCPM | Contact us: rumarcatalan@gmail.com</p>
     </footer>
     <script src="js/validation.js"></script>
     <script src="js/auth.js"></script>

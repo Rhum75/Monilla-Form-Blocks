@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Profile – Monilla</title>
+    <link rel="icon" type="image/png" href="images/home_product/LOGO.png" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* ── Profile Page Styles ── */
+      .profile-page-wrapper {
+        min-height: 100vh;
+        background: #f1f5f9;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .profile-main {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 3rem 1rem 4rem;
+      }
+
+      .profile-card {
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 8px 32px rgba(15, 23, 42, 0.12);
+        width: min(100%, 520px);
+        overflow: hidden;
+      }
+
+      /* Top banner */
+      .profile-banner {
+        height: 120px;
+        background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+        position: relative;
+      }
+
+      /* Avatar */
+      .profile-avatar-wrap {
+        position: absolute;
+        bottom: -44px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .profile-avatar {
+        width: 88px;
+        height: 88px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+        border: 4px solid #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        font-weight: 800;
+        color: #fff;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
+        user-select: none;
+      }
+
+      /* Card body */
+      .profile-body {
+        padding: 60px 2.2rem 2rem;
+        text-align: center;
+      }
+
+      .profile-name {
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: #1e293b;
+        margin: 0 0 0.25rem;
+        letter-spacing: 0.2px;
+      }
+
+      .profile-email {
+        font-size: 0.95rem;
+        color: #64748b;
+        font-weight: 500;
+        margin: 0 0 1.8rem;
+      }
+
+      /* Info rows */
+      .profile-info-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        text-align: left;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+      }
+
+      .profile-info-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.9rem 1.2rem;
+        border-bottom: 1px solid #f1f5f9;
+      }
+
+      .profile-info-row:last-child {
+        border-bottom: none;
+      }
+
+      .profile-info-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        background: #eff6ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #2563eb;
+        flex-shrink: 0;
+      }
+
+      .profile-info-content {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .profile-info-label {
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: #94a3b8;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        margin-bottom: 1px;
+      }
+
+      .profile-info-value {
+        font-size: 0.97rem;
+        font-weight: 600;
+        color: #1e293b;
+        word-break: break-all;
+      }
+
+      /* Buttons */
+      .profile-btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+        margin-top: 0.5rem;
+      }
+
+      .profile-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 0.85rem 1.5rem;
+        border-radius: 10px;
+        font-size: 0.95rem;
+        font-weight: 700;
+        cursor: pointer;
+        border: none;
+        transition: all 0.2s ease;
+        text-decoration: none;
+        width: 100%;
+      }
+
+      .profile-btn-primary {
+        background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+        color: #fff;
+        box-shadow: 0 2px 10px rgba(37, 99, 235, 0.25);
+      }
+
+      .profile-btn-primary:hover {
+        background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%);
+        box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
+        transform: translateY(-1px);
+      }
+
+      .profile-btn-danger {
+        background: #fff;
+        color: #dc2626;
+        border: 1.5px solid #fca5a5;
+      }
+
+      .profile-btn-danger:hover {
+        background: #fef2f2;
+        border-color: #f87171;
+      }
+
+      /* Loading & error states */
+      .profile-loading {
+        text-align: center;
+        padding: 3rem 1rem;
+        color: #64748b;
+        font-size: 1rem;
+        font-weight: 500;
+      }
+
+      .profile-spinner {
+        display: inline-block;
+        width: 28px;
+        height: 28px;
+        border: 3px solid #e2e8f0;
+        border-top-color: #2563eb;
+        border-radius: 50%;
+        animation: spin 0.75s linear infinite;
+        margin-bottom: 0.8rem;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .profile-body {
+          padding: 60px 1.2rem 1.5rem;
+        }
+        .profile-name {
+          font-size: 1.3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="profile-page-wrapper">
+      <header>
+        <div class="header-container">
+          <div class="logo">
+            <img
+              src="images/home_product/LOGO.png"
+              alt="Monilla Concrete Logo"
+              class="logo-img"
+            />
+            <div class="logo-text">
+              <span class="logo-title">MONILLA</span>
+              <span class="logo-subtitle">CONCRETE PRODUCTS MANUFACTURING</span>
+            </div>
+          </div>
+
+          <nav class="nav-menu">
+            <a href="index.html#home" class="nav-link">Home</a>
+            <a href="index.html#products" class="nav-link">Products</a>
+            <a href="index.html#about" class="nav-link">About</a>
+            <a href="index.html#projects" class="nav-link">Projects</a>
+            <a href="index.html#contact" class="nav-link">Contact</a>
+          </nav>
+
+          <button
+            class="mobile-menu-toggle"
+            id="mobileMenuToggle"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <div class="header-right">
+            <!-- Cart Icon -->
+            <button
+              class="header-icon-btn"
+              id="cartBtn"
+              aria-label="Shopping cart"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path
+                  d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                ></path>
+              </svg>
+              <span class="header-icon-badge hidden" id="cartBadge">0</span>
+            </button>
+            <!-- User / Profile Icon -->
+            <div class="header-user-wrap" id="headerUserWrap">
+              <button
+                class="header-icon-btn"
+                id="headerUserBtn"
+                aria-label="User account"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </button>
+              <div class="header-user-dropdown hidden" id="headerUserDropdown">
+                <a href="profile.html" class="header-dropdown-item">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                  My Profile
+                </a>
+                <button
+                  class="header-dropdown-item header-dropdown-logout"
+                  id="headerLogoutBtn"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                  </svg>
+                  Logout
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="profile-main">
+        <div class="profile-card" id="profileCard">
+          <!-- Content injected by JS -->
+          <div class="profile-loading" id="profileLoading">
+            <div class="profile-spinner"></div>
+            <br />Loading your profile…
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="js/cart.js"></script>
+    <script src="js/header-auth.js"></script>
+    <script>
+      (function () {
+        "use strict";
+
+        async function loadProfile() {
+          var card = document.getElementById("profileCard");
+
+          var user = null;
+          try {
+            var res = await fetch("backend/me.php", {
+              credentials: "same-origin",
+            });
+            var data = await res.json();
+            if (data.authenticated && data.user) {
+              user = data.user;
+            }
+          } catch (e) {}
+
+          if (!user) {
+            // Not logged in — redirect to login
+            window.location.href = "login.html";
+            return;
+          }
+
+          var initials = getInitials(user.name);
+
+          card.innerHTML =
+            '<div class="profile-banner">' +
+            '<div class="profile-avatar-wrap">' +
+            '<div class="profile-avatar">' +
+            initials +
+            "</div>" +
+            "</div>" +
+            "</div>" +
+            '<div class="profile-body">' +
+            '<h1 class="profile-name">' +
+            escapeHtml(user.name) +
+            "</h1>" +
+            '<p class="profile-email">' +
+            escapeHtml(user.email) +
+            "</p>" +
+            '<div class="profile-info-list">' +
+            '<div class="profile-info-row">' +
+            '<div class="profile-info-icon">' +
+            '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>' +
+            "</div>" +
+            '<div class="profile-info-content">' +
+            '<div class="profile-info-label">Full Name</div>' +
+            '<div class="profile-info-value">' +
+            escapeHtml(user.name) +
+            "</div>" +
+            "</div>" +
+            "</div>" +
+            '<div class="profile-info-row">' +
+            '<div class="profile-info-icon">' +
+            '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>' +
+            "</div>" +
+            '<div class="profile-info-content">' +
+            '<div class="profile-info-label">Email Address</div>' +
+            '<div class="profile-info-value">' +
+            escapeHtml(user.email) +
+            "</div>" +
+            "</div>" +
+            "</div>" +
+            '<div class="profile-info-row">' +
+            '<div class="profile-info-icon">' +
+            '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>' +
+            "</div>" +
+            '<div class="profile-info-content">' +
+            '<div class="profile-info-label">Account ID</div>' +
+            '<div class="profile-info-value">#' +
+            escapeHtml(String(user.id)) +
+            "</div>" +
+            "</div>" +
+            "</div>" +
+            "</div>" +
+            '<div class="profile-btn-group">' +
+            '<a href="index.html" class="profile-btn profile-btn-primary">' +
+            '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>' +
+            "Back to Home" +
+            "</a>" +
+            '<button class="profile-btn profile-btn-danger" id="profileLogoutBtn">' +
+            '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>' +
+            "Sign Out" +
+            "</button>" +
+            "</div>" +
+            "</div>";
+
+          // Logout from profile page
+          var logoutBtn = document.getElementById("profileLogoutBtn");
+          if (logoutBtn) {
+            logoutBtn.addEventListener("click", async function () {
+              try {
+                await fetch("backend/logout.php", {
+                  method: "POST",
+                  credentials: "same-origin",
+                });
+              } catch (e) {}
+              window.location.href = "login.html";
+            });
+          }
+        }
+
+        function getInitials(name) {
+          if (!name) return "?";
+          var parts = name.trim().split(/\s+/);
+          if (parts.length === 1) return parts[0].charAt(0).toUpperCase();
+          return (
+            parts[0].charAt(0) + parts[parts.length - 1].charAt(0)
+          ).toUpperCase();
+        }
+
+        function escapeHtml(str) {
+          return String(str)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;");
+        }
+
+        document.addEventListener("DOMContentLoaded", loadProfile);
+      })();
+    </script>
+  </body>
+</html>
