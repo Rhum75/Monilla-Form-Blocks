@@ -1,0 +1,753 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products | Monilla Website</title>
+    <link rel="icon" type="image/png" href="images/home_product/LOGO.png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="project-wrapper">
+      <header>
+        <div class="header-container">
+          <div class="logo">
+            <img
+              src="images/home_product/LOGO.png"
+              alt="Monilla Concrete Logo"
+              class="logo-img"
+            />
+            <div class="logo-text">
+              <span class="logo-title">MONILLA</span>
+              <span class="logo-subtitle">CONCRETE PRODUCTS MANUFACTURING</span>
+            </div>
+          </div>
+
+          <nav class="nav-menu">
+            <a href="index.html#home" class="nav-link">Home</a>
+            <a href="products.html" class="nav-link">Products</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+          </nav>
+
+          <button
+            class="mobile-menu-toggle"
+            id="mobileMenuToggle"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            type="button"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <div class="header-right">
+            <!-- Cart Icon -->
+            <button
+              class="header-icon-btn"
+              id="cartBtn"
+              type="button"
+              aria-label="Shopping cart"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path
+                  d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                ></path>
+              </svg>
+              <span class="header-icon-badge hidden" id="cartBadge">0</span>
+            </button>
+            <!-- User / Profile Icon -->
+            <div class="header-user-wrap" id="headerUserWrap">
+              <button
+                class="header-icon-btn"
+                id="headerUserBtn"
+                aria-label="User account"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </button>
+              <div class="header-user-dropdown hidden" id="headerUserDropdown">
+                <a href="profile.html" class="header-dropdown-item">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                  My Profile
+                </a>
+                <button
+                  class="header-dropdown-item header-dropdown-logout"
+                  id="headerLogoutBtn"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                  </svg>
+                  Logout
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <div class="section-header-row">
+          <div class="section-title-bar"></div>
+          <h2 class="section-main-title">Explore Our Products</h2>
+        </div>
+
+        <!-- Section Hero Banner: Left-aligned Box with Blue Bar -->
+        <div class="section-hero-banner">
+          <img
+            class="hero-banner-bg-img"
+            src="images/home_product/Gallery.png"
+            alt="Products Banner"
+          />
+          <div class="hero-banner-overlay"></div>
+          <div class="hero-banner-content-row">
+            <div class="hero-banner-content-box">
+              <h2 class="hero-banner-title">Our Products</h2>
+              <p class="hero-banner-desc">
+                Browse our high-quality precast wall form blocks designed to be
+                stronger and more durable than traditional hollow blocks,
+                providing reliable support for modern construction projects.
+              </p>
+              <div class="hero-banner-meta">
+                24 products across 3 categories
+              </div>
+              <div class="hero-banner-blue-bar"></div>
+            </div>
+          </div>
+        </div>
+
+        <section
+          class="pp-products-section"
+          aria-label="Precast Concrete Blocks"
+        >
+          <div class="pp-breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html#home">Home</a>
+            <span class="pp-breadcrumb-sep">&gt;</span>
+            <a href="products.html">Products</a>
+            <span class="pp-breadcrumb-sep">&gt;</span>
+            <span>Precast Concrete Blocks</span>
+          </div>
+
+          <div class="pp-tabs" role="tablist" aria-label="Product type">
+            <button
+              class="pp-tab is-active"
+              type="button"
+              data-target="conventional-design"
+              role="tab"
+              aria-selected="true"
+            >
+              Conventional Design
+            </button>
+            <button
+              class="pp-tab"
+              type="button"
+              data-target="v-cut-design"
+              role="tab"
+              aria-selected="false"
+            >
+              V-Cut Design
+            </button>
+            <button
+              class="pp-tab"
+              type="button"
+              data-target="shiplap-design"
+              role="tab"
+              aria-selected="false"
+            >
+              Shiplap Design
+            </button>
+          </div>
+
+          <div class="pp-grid">
+            <article class="pp-card" id="conventional-design">
+              <img
+                class="pp-card-img"
+                src="images/home_product/conventional.png"
+                alt="Conventional Design"
+              />
+              <div class="pp-card-body">
+                <h3 class="pp-card-title">Conventional Design</h3>
+                <div class="pp-card-rating" aria-label="Rating 5 out of 5">
+                  ★★★★★ <span>1 reviews</span>
+                </div>
+                <p class="pp-card-desc">
+                  A standard precast concrete block with straight edges that
+                  provides a simple and reliable solution for general wall
+                  construction.
+                </p>
+                <button
+                  class="pp-cart-btn pp-open-popup-btn"
+                  type="button"
+                  data-id="conventional-design"
+                  data-price="160"
+                  data-title="Precast Wall Form Block – Standard"
+                  data-type="Conventional Design"
+                  data-material="Concrete"
+                  data-category="Precast Construction Material"
+                  data-length="1 meter"
+                  data-height="25 cm"
+                  data-width='3", 4", 5", 6", 8"'
+                  data-weight="15 kg"
+                  data-color="Gray"
+                  data-durability="Long-lasting and weather-resistant"
+                  data-application="Wall construction for all building types"
+                  data-usage="Suitable for load-bearing and partition walls"
+                  data-img="images/home_product/conventional.png"
+                >
+                  View More &gt;
+                </button>
+              </div>
+            </article>
+
+            <article class="pp-card" id="v-cut-design">
+              <img
+                class="pp-card-img"
+                src="images/home_product/vcut.png"
+                alt="V-Cut Design"
+              />
+              <div class="pp-card-body">
+                <h3 class="pp-card-title">V-Cut Design</h3>
+                <div class="pp-card-rating" aria-label="Rating 5 out of 5">
+                  ★★★★★ <span>1 reviews</span>
+                </div>
+                <p class="pp-card-desc">
+                  A precast concrete block with a V-shaped joint that creates a
+                  clean, flat wall surface with a visible V line for a modern
+                  and uniform appearance.
+                </p>
+                <button
+                  class="pp-cart-btn pp-open-popup-btn"
+                  type="button"
+                  data-id="v-cut-design"
+                  data-price="160"
+                  data-title="Precast Wall Form Block – V-Cut"
+                  data-type="V-Cut Design"
+                  data-material="Concrete"
+                  data-category="Precast Construction Material"
+                  data-length="1 meter"
+                  data-height="25 cm"
+                  data-width='3", 4", 5", 6", 8"'
+                  data-weight="15 kg"
+                  data-color="Gray"
+                  data-durability="Long-lasting and weather-resistant"
+                  data-application="Decorative and contemporary walls"
+                  data-usage="Can be installed horizontally or vertically; creates a flat surface with clean V-joint lines for modern aesthetic"
+                  data-img="images/home_product/vcut.png"
+                >
+                  View More &gt;
+                </button>
+              </div>
+            </article>
+
+            <article class="pp-card" id="shiplap-design">
+              <img
+                class="pp-card-img"
+                src="images/home_product/shiplap.png"
+                alt="Shiplap Design"
+              />
+              <div class="pp-card-body">
+                <h3 class="pp-card-title">Shiplap Design</h3>
+                <div class="pp-card-rating" aria-label="Rating 5 out of 5">
+                  ★★★★★ <span>1 reviews</span>
+                </div>
+                <p class="pp-card-desc">
+                  A precast concrete block with an overlapping edge or curved
+                  lip that helps guide water runoff and provides a traditional
+                  horizontal wall finish.
+                </p>
+                <button
+                  class="pp-cart-btn pp-open-popup-btn"
+                  type="button"
+                  data-id="shiplap-design"
+                  data-price="160"
+                  data-title="Precast Wall Form Block – Shiplap"
+                  data-type="Shiplap Design"
+                  data-material="Concrete (non-reinforced)"
+                  data-category="Precast Construction Material"
+                  data-length="1 meter"
+                  data-height="25 cm"
+                  data-width='3", 4", 5", 6", 8"'
+                  data-weight="15 kg"
+                  data-color="Gray"
+                  data-durability="Long-lasting and weather-resistant; curved lip helps water runoff and reduces moisture damage"
+                  data-application="Decorative and traditional-style walls"
+                  data-usage="Installed horizontally; curved lip overlaps for tighter fit and better rainfall resistance; gives a softer, rustic look"
+                  data-img="images/home_product/shiplap.png"
+                >
+                  View More &gt;
+                </button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <div
+          id="ppProductPopup"
+          class="pp-popup-overlay hidden"
+          aria-hidden="true"
+        >
+          <div
+            class="pp-popup-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="ppPopupTitle"
+          >
+            <button
+              class="pp-popup-close"
+              id="ppPopupClose"
+              type="button"
+              aria-label="Close popup"
+            >
+              &times;
+            </button>
+            <div class="pp-popup-top">
+              <div class="pp-popup-info">
+                <h3 class="pp-popup-title" id="ppPopupTitle">Product</h3>
+                <div class="pp-popup-rating">★★★★☆ <span>1 reviews</span></div>
+                <p class="pp-popup-desc" id="ppPopupDesc"></p>
+                <button
+                  class="pp-popup-view-btn"
+                  id="ppPopupViewBtn"
+                  type="button"
+                >
+                  View More &gt;
+                </button>
+              </div>
+              <img
+                class="pp-popup-img"
+                id="ppPopupImg"
+                src="images/home_product/conventional.png"
+                alt="Selected Product"
+              />
+            </div>
+
+            <div class="pp-popup-options">
+              <div class="pp-size-row" role="group" aria-label="Size options">
+                <button
+                  class="pp-size-btn is-active"
+                  type="button"
+                  data-size="Size 4"
+                >
+                  Size 4
+                </button>
+                <button class="pp-size-btn" type="button" data-size="Size 5">
+                  Size 5
+                </button>
+                <button class="pp-size-btn" type="button" data-size="Size 6">
+                  Size 6
+                </button>
+                <button class="pp-size-btn" type="button" data-size="Size 8">
+                  Size 8
+                </button>
+              </div>
+
+              <div class="pp-price-qty-row">
+                <div class="pp-popup-price" id="ppPopupPrice">₱160</div>
+              </div>
+              <div class="pp-popup-total" id="ppPopupTotal">Total: ₱160</div>
+
+              <div class="pp-form-grid">
+                <label class="pp-field">
+                  <span>Quantity</span>
+                  <input id="ppQuantityInput" type="number" min="1" value="1" />
+                </label>
+              </div>
+            </div>
+
+            <button class="pp-popup-add-btn" id="ppPopupAddBtn" type="button">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-container">
+          <div class="footer-col footer-brand">
+            <div class="footer-logo-row">
+              <svg
+                width="90"
+                height="40"
+                viewBox="0 0 90 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="40" rx="6" fill="#fff" />
+                <text
+                  x="15"
+                  y="25"
+                  font-size="16"
+                  font-weight="bold"
+                  fill="#22307a"
+                >
+                  MCPM
+                </text>
+              </svg>
+              <div class="footer-brand-text">
+                <span class="footer-brand-title"
+                  >CONCRETE PRODUCTS MANUFACTURING</span
+                >
+                <span class="footer-brand-since">SINCE 2010</span>
+              </div>
+            </div>
+            <p class="footer-desc">
+              Since 2010, Monilla Concrete Product Manufacturing has been a
+              trusted provider of precast concrete solutions in the Philippines.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html#home">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Our Products</h4>
+            <ul>
+              <li><a href="products.html">Conventional Design</a></li>
+              <li><a href="products.html">V-cut Design</a></li>
+              <li><a href="products.html">Shiplap Design</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Get In Touch</h4>
+            <ul class="footer-contact">
+              <li>
+                <span class="footer-icon">📍</span> Mango Village, Salitran IV,
+                Salitran, Dasmariñas, Cavite
+              </li>
+              <li>
+                <span class="footer-icon">📞</span> (+63) 976-012-4416<br />
+                (+63) 967-528-5806<br />
+                (+63) 997-742-2101
+              </li>
+              <li>
+                <span class="footer-icon">✉️</span> rumarcatalan@gmail.com
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <hr />
+          <p>
+            © 2026 Monilla Concrete Products, Manufacturing. All rights
+            reserved. Since 2010.
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="js/cart.js"></script>
+    <script src="js/header-auth.js"></script>
+    <script>
+      (function () {
+        var mobileMenuToggle = document.getElementById("mobileMenuToggle");
+        var navMenu = document.querySelector(".nav-menu");
+        if (!mobileMenuToggle || !navMenu) return;
+
+        mobileMenuToggle.addEventListener("click", function () {
+          var isOpen = navMenu.classList.toggle("mobile-open");
+          mobileMenuToggle.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false",
+          );
+          document.body.classList.toggle("mobile-menu-open", isOpen);
+        });
+
+        var tabs = document.querySelectorAll(".pp-tab");
+        if (!tabs.length) return;
+
+        tabs.forEach(function (tab) {
+          tab.addEventListener("click", function () {
+            tabs.forEach(function (other) {
+              other.classList.remove("is-active");
+              other.setAttribute("aria-selected", "false");
+            });
+            tab.classList.add("is-active");
+            tab.setAttribute("aria-selected", "true");
+
+            var targetId = tab.getAttribute("data-target");
+            var targetCard = targetId
+              ? document.getElementById(targetId)
+              : null;
+            if (targetCard) {
+              targetCard.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+            }
+          });
+        });
+
+        var popupOverlay = document.getElementById("ppProductPopup");
+        var popupClose = document.getElementById("ppPopupClose");
+        var popupTitle = document.getElementById("ppPopupTitle");
+        var popupDesc = document.getElementById("ppPopupDesc");
+        var popupImg = document.getElementById("ppPopupImg");
+        var popupPrice = document.getElementById("ppPopupPrice");
+        var popupTotal = document.getElementById("ppPopupTotal");
+        var popupAddBtn = document.getElementById("ppPopupAddBtn");
+        var popupViewBtn = document.getElementById("ppPopupViewBtn");
+        var qtyInput = document.getElementById("ppQuantityInput");
+        var sizeButtons = document.querySelectorAll(".pp-size-btn");
+        var openButtons = document.querySelectorAll(".pp-open-popup-btn");
+
+        var activeProduct = null;
+        var activeSize = "Size 4";
+        var activeQty = 1;
+
+        function resetAddButtonState() {
+          if (!popupAddBtn) return;
+          popupAddBtn.disabled = false;
+          popupAddBtn.classList.remove("is-added");
+          popupAddBtn.textContent = "Add to Cart";
+        }
+
+        function showAddedButtonState() {
+          if (!popupAddBtn) return;
+          popupAddBtn.disabled = true;
+          popupAddBtn.classList.add("is-added");
+          popupAddBtn.textContent = "Added!";
+        }
+
+        function formatPeso(amount) {
+          var value = Number(amount);
+          if (!Number.isFinite(value)) value = 0;
+          return new Intl.NumberFormat("en-PH", {
+            style: "currency",
+            currency: "PHP",
+            maximumFractionDigits: 0,
+          }).format(value);
+        }
+
+        function getUnitPriceBySize() {
+          var basePrice = activeProduct
+            ? Number(activeProduct.price) || 160
+            : 160;
+          if (activeSize === "Size 5") return basePrice + 5;
+          if (activeSize === "Size 6") return basePrice + 10;
+          if (activeSize === "Size 8") return basePrice + 15;
+          return basePrice;
+        }
+
+        function updatePriceDisplay() {
+          var unitPrice = getUnitPriceBySize();
+          var totalPrice = unitPrice * activeQty;
+          popupPrice.textContent = formatPeso(unitPrice);
+          popupTotal.textContent = "Total: " + formatPeso(totalPrice);
+        }
+
+        function syncQty(nextQty) {
+          activeQty = Math.max(1, Number(nextQty) || 1);
+          qtyInput.value = String(activeQty);
+          updatePriceDisplay();
+        }
+
+        function setActiveSize(button) {
+          sizeButtons.forEach(function (btn) {
+            btn.classList.remove("is-active");
+          });
+          button.classList.add("is-active");
+          activeSize = button.getAttribute("data-size") || "Size 4";
+          updatePriceDisplay();
+        }
+
+        function openPopup(button) {
+          var card = button.closest(".pp-card");
+          var cardDescNode = card ? card.querySelector(".pp-card-desc") : null;
+
+          activeProduct = {
+            id: button.getAttribute("data-id") || "product",
+            title: button.getAttribute("data-title") || "Product",
+            type: button.getAttribute("data-type") || "Precast Block",
+            desc: cardDescNode ? cardDescNode.textContent.trim() : "",
+            img:
+              button.getAttribute("data-img") ||
+              "images/home_product/conventional.png",
+            price: Number(button.getAttribute("data-price")) || 160,
+          };
+
+          popupTitle.textContent = activeProduct.type;
+          popupDesc.textContent = activeProduct.desc;
+          popupImg.src = activeProduct.img;
+
+          syncQty(1);
+
+          var firstSize =
+            document.querySelector(".pp-size-btn[data-size='Size 4']") ||
+            sizeButtons[0];
+          if (firstSize) setActiveSize(firstSize);
+          updatePriceDisplay();
+          resetAddButtonState();
+
+          popupOverlay.classList.remove("hidden");
+          popupOverlay.setAttribute("aria-hidden", "false");
+        }
+
+        function closePopup() {
+          popupOverlay.classList.add("hidden");
+          popupOverlay.setAttribute("aria-hidden", "true");
+        }
+
+        function addToCartAndOpenCart() {
+          if (!activeProduct) return;
+
+          var storageKey = "monilla_cart_items";
+          var ownerKey = "monilla_cart_owner";
+          var meta = [activeSize]
+            .filter(function (v) {
+              return (v || "").trim() !== "";
+            })
+            .join(" | ");
+
+          var nextItem = {
+            id:
+              activeProduct.id +
+              "-" +
+              activeSize.toLowerCase().replace(/\s+/g, "-"),
+            title: activeProduct.title,
+            type: meta
+              ? activeProduct.type + " (" + meta + ")"
+              : activeProduct.type,
+            image: activeProduct.img,
+            price: getUnitPriceBySize(),
+            quantity: activeQty,
+          };
+
+          var items = [];
+          try {
+            var parsed = JSON.parse(localStorage.getItem(storageKey) || "[]");
+            items = Array.isArray(parsed) ? parsed : [];
+          } catch (e) {
+            items = [];
+          }
+
+          var found = items.find(function (item) {
+            return item && item.id === nextItem.id;
+          });
+          if (found) {
+            found.quantity =
+              Math.max(1, Number(found.quantity) || 1) + activeQty;
+          } else {
+            items.push(nextItem);
+          }
+
+          localStorage.setItem(storageKey, JSON.stringify(items));
+          if (!localStorage.getItem(ownerKey)) {
+            localStorage.setItem(ownerKey, "guest");
+          }
+
+          var badge = document.getElementById("cartBadge");
+          if (badge) {
+            var totalQty = items.reduce(function (sum, item) {
+              return sum + (Number(item.quantity) || 0);
+            }, 0);
+            badge.textContent = String(totalQty);
+            badge.classList.toggle("hidden", totalQty <= 0);
+          }
+
+          showAddedButtonState();
+          setTimeout(function () {
+            closePopup();
+            resetAddButtonState();
+            window.location.href = "cart.html";
+          }, 700);
+        }
+
+        openButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            openPopup(button);
+          });
+        });
+
+        if (popupClose) {
+          popupClose.addEventListener("click", closePopup);
+        }
+
+        if (popupOverlay) {
+          popupOverlay.addEventListener("click", function (event) {
+            if (event.target === popupOverlay) {
+              closePopup();
+            }
+          });
+        }
+
+        if (qtyInput) {
+          qtyInput.addEventListener("input", function () {
+            syncQty(qtyInput.value);
+          });
+        }
+
+        sizeButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            setActiveSize(button);
+          });
+        });
+
+        if (popupViewBtn) {
+          popupViewBtn.addEventListener("click", function () {
+            closePopup();
+          });
+        }
+
+        if (popupAddBtn) {
+          popupAddBtn.addEventListener("click", addToCartAndOpenCart);
+        }
+      })();
+    </script>
+  </body>
+</html>

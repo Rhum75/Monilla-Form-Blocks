@@ -86,26 +86,33 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
   var ctaBtn = document.querySelector('.cta-btn.cta-btn-blue');
   var contactFormSection = document.querySelector('.contact-form-section');
-  if (ctaBtn && contactFormSection) {
+  if (ctaBtn) {
     ctaBtn.addEventListener('click', function (e) {
       e.preventDefault();
-      contactFormSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (contactFormSection) {
+        contactFormSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        window.location.href = 'contact.html';
+      }
     });
   }
 });
-// --- Scroll to Contact Form from Product Modal ---
+// --- Product Modal CTA Navigation ---
 document.addEventListener('DOMContentLoaded', function () {
-  var modalContactBtns = document.querySelectorAll('.product-modal-btn.secondary, .product-modal-btn.primary');
-  var contactFormSection = document.querySelector('.contact-form-section');
-  if (modalContactBtns && contactFormSection) {
-    modalContactBtns.forEach(function (btn) {
-      btn.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.getElementById('product-modal').style.display = 'none';
-        setTimeout(function () {
-          contactFormSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 200);
-      });
+  var inquireBtn = document.querySelector('.product-modal-btn.primary');
+  var contactBtn = document.querySelector('.product-modal-btn.secondary');
+
+  if (inquireBtn) {
+    inquireBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.location.href = 'products.html';
+    });
+  }
+
+  if (contactBtn) {
+    contactBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.location.href = 'contact.html';
     });
   }
 });
@@ -304,39 +311,3 @@ if (videoModal) {
     }
   });
 }
-
-// === Scroll to Top/Bottom Buttons ===
-document.addEventListener('DOMContentLoaded', function () {
-  const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-  const scrollToBottomBtn = document.getElementById('scrollToBottomBtn');
-
-  function checkScrollButtons() {
-    const scrollY = window.scrollY || window.pageYOffset;
-    const windowHeight = window.innerHeight;
-    const docHeight = document.documentElement.scrollHeight;
-    // Show top button if scrolled down 200px
-    if (scrollY > 200) {
-      scrollToTopBtn.classList.add('visible');
-    } else {
-      scrollToTopBtn.classList.remove('visible');
-    }
-    // Show bottom button if not near bottom (200px from bottom)
-    if (scrollY + windowHeight < docHeight - 200) {
-      scrollToBottomBtn.classList.add('visible');
-    } else {
-      scrollToBottomBtn.classList.remove('visible');
-    }
-  }
-
-  window.addEventListener('scroll', checkScrollButtons);
-  window.addEventListener('resize', checkScrollButtons);
-  checkScrollButtons();
-
-  scrollToTopBtn.addEventListener('click', function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-  scrollToBottomBtn.addEventListener('click', function () {
-    window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
-  });
-});
-// === End Scroll to Top/Bottom Buttons ===

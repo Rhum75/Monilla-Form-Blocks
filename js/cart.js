@@ -3,6 +3,9 @@
 
     var CART_STORAGE_KEY = 'monilla_cart_items';
     var CART_OWNER_KEY = 'monilla_cart_owner';
+    var ORDER_NOTES_KEY = 'monilla_order_notes';
+    var DELIVERY_FORM_KEY = 'monilla_delivery_info';
+    var DELIVERY_FEE_PER_PIECE = 5;
     var currentUser = null;
     var backendBase = '';
     var DEFAULT_PRICE_BY_ID = {
@@ -287,13 +290,199 @@
         var totalItemsNode = document.getElementById('cartTotalItems');
         var totalTypesNode = document.getElementById('cartTotalTypes');
         var subtotalNode = document.getElementById('cartSubtotal');
+        var deliveryFeeNode = document.getElementById('cartDeliveryFee');
         var grandTotalNode = document.getElementById('cartGrandTotal');
+        var totalQty = getTotalQuantity(items);
         var subtotal = getSubtotal(items);
+        var deliveryFee = totalQty * DELIVERY_FEE_PER_PIECE;
+        var grandTotal = subtotal + deliveryFee;
 
-        if (totalItemsNode) totalItemsNode.textContent = String(getTotalQuantity(items));
+        if (totalItemsNode) totalItemsNode.textContent = String(totalQty);
         if (totalTypesNode) totalTypesNode.textContent = String(items.length);
         if (subtotalNode) subtotalNode.textContent = formatCurrency(subtotal);
-        if (grandTotalNode) grandTotalNode.textContent = formatCurrency(subtotal);
+        if (deliveryFeeNode) deliveryFeeNode.textContent = formatCurrency(deliveryFee);
+        if (grandTotalNode) grandTotalNode.textContent = formatCurrency(grandTotal);
+    }
+
+    function bindOrderNotes() {
+        var notesNode = document.getElementById('cartOrderNotes');
+        if (!notesNode) return;
+
+        notesNode.value = localStorage.getItem(ORDER_NOTES_KEY) || '';
+
+        notesNode.addEventListener('input', function () {
+            localStorage.setItem(ORDER_NOTES_KEY, notesNode.value || '');
+        });
+    }
+
+    function bindDeliveryInfoForm() {
+        var card = document.getElementById('deliveryInfoCard');
+        if (!card) return;
+
+        var modeButtons = Array.from(card.querySelectorAll('.delivery-mode-btn'));
+        var paymentButtons = Array.from(card.querySelectorAll('.payment-method-btn'));
+        var deliveryOnlyFields = Array.from(card.querySelectorAll('[data-delivery-only="true"]'));
+        var pickupOnlyFields = Array.from(card.querySelectorAll('[data-pickup-only="true"]'));
+        var estimateNode = document.getElementById('deliveryEstimateNote');
+        var formInputs = Array.from(card.querySelectorAll('input, select'));
+        var mode = 'delivery';
+        var paymentMethod = 'cod';
+
+        function setPaymentMethod(nextMethod) {
+            paymentMethod = nextMethod || 'cod';
+
+            paymentButtons.forEach(function (button) {
+                var isActive = button.getAttribute('data-payment') === paymentMethod;
+                button.classList.toggle('is-active', isActive);
+                button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            });
+        }
+
+        function setMode(nextMode) {
+            mode = nextMode === 'pickup' ? 'pickup' : 'delivery';
+
+            modeButtons.forEach(function (button) {
+                var isActive = button.getAttribute('data-mode') === mode;
+                button.classList.toggle('is-active', isActive);
+                button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            });
+
+            deliveryOnlyFields.forEach(function (field) {
+                field.classList.toggle('is-hidden', mode === 'pickup');
+            });
+
+            pickupOnlyFields.forEach(function (field) {
+                field.classList.toggle('is-hidden', mode !== 'pickup');
+            });
+
+            if (estimateNode) {
+                estimateNode.textContent = mode === 'pickup'
+                    ? 'Pick up location: Main Branch - Mango Village, Salitran IV, Dasmarinas, Cavite.'
+                    : 'Estimated delivery: 1-3 business days.';
+            }
+        }
+
+        function saveForm() {
+            var payload = {
+                mode: mode,
+                fullName: (document.getElementById('deliveryFullName') || {}).value || '',
+                phone: (document.getElementById('deliveryPhone') || {}).value || '',
+                street: (document.getElementById('deliveryStreet') || {}).value || '',
+                city: (document.getElementById('deliveryCity') || {}).value || '',
+                zip: (document.getElementById('deliveryZip') || {}).value || '',
+                instructions: (document.getElementById('deliveryInstructions') || {}).value || '',
+                pickupBranch: (document.getElementById('pickupBranch') || {}).value || '',
+                paymentMethod: paymentMethod
+            };
+            localStorage.setItem(DELIVERY_FORM_KEY, JSON.stringify(payload));
+        }
+
+        function loadForm() {
+            try {
+                var raw = localStorage.getItem(DELIVERY_FORM_KEY);
+                if (!raw) {
+                    setMode('delivery');
+                    return;
+                }
+
+                var saved = JSON.parse(raw);
+                if (!saved || typeof saved !== 'object') {
+                    setMode('delivery');
+                    return;
+                }
+
+                if (document.getElementById('deliveryFullName')) document.getElementById('deliveryFullName').value = saved.fullName || '';
+                if (document.getElementById('deliveryPhone')) document.getElementById('deliveryPhone').value = saved.phone || '';
+                if (document.getElementById('deliveryStreet')) document.getElementById('deliveryStreet').value = saved.street || '';
+                if (document.getElementById('deliveryCity')) document.getElementById('deliveryCity').value = saved.city || '';
+                if (document.getElementById('deliveryZip')) document.getElementById('deliveryZip').value = saved.zip || '';
+                if (document.getElementById('deliveryInstructions')) document.getElementById('deliveryInstructions').value = saved.instructions || '';
+                if (document.getElementById('pickupBranch')) document.getElementById('pickupBranch').value = saved.pickupBranch || 'Mango Village, Salitran IV, Dasmarinas, Cavite';
+                setPaymentMethod(saved.paymentMethod || 'cod');
+                setMode(saved.mode || 'delivery');
+            } catch (err) {
+                setPaymentMethod('cod');
+                setMode('delivery');
+            }
+        }
+
+        modeButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                setMode(button.getAttribute('data-mode'));
+                saveForm();
+            });
+        });
+
+        paymentButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                setPaymentMethod(button.getAttribute('data-payment'));
+                saveForm();
+            });
+        });
+
+        formInputs.forEach(function (input) {
+            input.addEventListener('input', saveForm);
+        });
+
+        if (!paymentButtons.length) {
+            paymentMethod = 'cod';
+        }
+
+        loadForm();
+    }
+
+    function bindOrderPlacedModal() {
+        var proceedBtn = document.getElementById('proceedInquiryBtn');
+        var modal = document.getElementById('orderPlacedModal');
+        var metaNode = document.getElementById('orderPlacedMeta');
+        var notesNode = document.getElementById('orderPlacedNotes');
+        if (!proceedBtn || !modal) return;
+
+        proceedBtn.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            var items = readCart();
+            if (!items.length) {
+                return;
+            }
+
+            var totalQty = getTotalQuantity(items);
+            var subtotal = getSubtotal(items);
+            var deliveryFee = totalQty * DELIVERY_FEE_PER_PIECE;
+            var grandTotal = subtotal + deliveryFee;
+
+            var deliveryInfo = {};
+            try {
+                deliveryInfo = JSON.parse(localStorage.getItem(DELIVERY_FORM_KEY) || '{}') || {};
+            } catch (err) {
+                deliveryInfo = {};
+            }
+
+            var modeLabel = (deliveryInfo.mode || 'delivery') === 'pickup' ? 'Pick Up' : 'Delivery';
+            var paymentLabelMap = {
+                cod: 'Cash on Delivery',
+                gcash: 'GCash',
+                bank: 'Bank Transfer'
+            };
+            var paymentLabel = paymentLabelMap[deliveryInfo.paymentMethod] || 'Cash on Delivery';
+            var orderNotes = (localStorage.getItem(ORDER_NOTES_KEY) || '').trim();
+
+            if (metaNode) {
+                metaNode.textContent = modeLabel + ' - ' + paymentLabel + ' - Total ' + formatCurrency(grandTotal);
+            }
+
+            if (notesNode) {
+                notesNode.textContent = 'Notes: ' + (orderNotes || '-');
+            }
+
+            // Simulate completed purchase by clearing cart contents.
+            persistCart([]);
+            updateCartBadge();
+            renderCartPage();
+
+            modal.classList.remove('hidden');
+            modal.setAttribute('aria-hidden', 'false');
+        });
     }
 
     function renderCartPage() {
@@ -318,23 +507,31 @@
 
             return [
                 '<article class="cart-item">',
-                '  <img class="cart-item-img" src="' + safeImg + '" alt="' + safeTitle + '">',
-                '  <div class="cart-item-content">',
-                '    <h3 class="cart-item-title">' + safeTitle + '</h3>',
-                '    <p class="cart-item-type">' + safeType + '</p>',
-                '    <div class="cart-item-pricing">',
-                '      <span class="cart-item-unit-price">Unit: ' + formatCurrency(unitPrice) + '</span>',
-                '      <span class="cart-item-line-total">Subtotal: ' + formatCurrency(lineTotal) + '</span>',
-                '    </div>',
-                '    <div class="cart-item-controls">',
-                '      <div class="qty-control">',
-                '        <button class="qty-btn" type="button" data-action="decrease" data-index="' + index + '">-</button>',
-                '        <span class="qty-value">' + qty + '</span>',
-                '        <button class="qty-btn" type="button" data-action="increase" data-index="' + index + '">+</button>',
-                '      </div>',
-                '      <button class="cart-remove-btn" type="button" data-action="remove" data-index="' + index + '">Remove</button>',
+                '  <div class="cart-col-product">',
+                '    <img class="cart-item-img" src="' + safeImg + '" alt="' + safeTitle + '">',
+                '    <div class="cart-item-content">',
+                '      <h3 class="cart-item-title">' + safeTitle + '</h3>',
+                '      <p class="cart-item-type">' + safeType + '</p>',
                 '    </div>',
                 '  </div>',
+                '  <div class="cart-col-price">' + formatCurrency(unitPrice) + '</div>',
+                '  <div class="cart-col-qty">',
+                '    <div class="qty-control">',
+                '      <button class="qty-btn" type="button" data-action="decrease" data-index="' + index + '">-</button>',
+                '      <span class="qty-value">' + qty + '</span>',
+                '      <button class="qty-btn" type="button" data-action="increase" data-index="' + index + '">+</button>',
+                '    </div>',
+                '  </div>',
+                '  <div class="cart-col-total">' + formatCurrency(lineTotal) + '</div>',
+                '  <button class="cart-remove-btn" type="button" data-action="remove" data-index="' + index + '" aria-label="Remove item">',
+                '    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">',
+                '      <polyline points="3 6 5 6 21 6"></polyline>',
+                '      <path d="M19 6l-1 14H6L5 6"></path>',
+                '      <path d="M10 11v6"></path>',
+                '      <path d="M14 11v6"></path>',
+                '      <path d="M9 6V4h6v2"></path>',
+                '    </svg>',
+                '  </button>',
                 '</article>'
             ].join('');
         }).join('');
@@ -427,5 +624,8 @@
         bindAddToCartButtons();
         renderCartPage();
         bindCartPageEvents();
+        bindOrderNotes();
+        bindDeliveryInfoForm();
+        bindOrderPlacedModal();
     });
 })();

@@ -22,7 +22,7 @@ if ($identity === '' || $password === '') {
 }
 
 $pdo = db();
-$stmt = $pdo->prepare('SELECT id, full_name, email, password_hash FROM users WHERE email = :identity LIMIT 1');
+$stmt = $pdo->prepare('SELECT id, full_name, email, password_hash, role FROM users WHERE email = :identity LIMIT 1');
 $stmt->execute(['identity' => strtolower($identity)]);
 $user = $stmt->fetch();
 
@@ -34,6 +34,7 @@ $_SESSION['user'] = [
     'id' => (int) $user['id'],
     'name' => (string) $user['full_name'],
     'email' => (string) $user['email'],
+    'role' => (string) ($user['role'] ?? 'user'),
 ];
 
 jsonResponse([

@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Monilla Website</title>
+    <link rel="icon" type="image/png" href="images/home_product/LOGO.png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="project-wrapper">
+      <header>
+        <div class="header-container">
+          <div class="logo">
+            <img
+              src="images/home_product/LOGO.png"
+              alt="Monilla Concrete Logo"
+              class="logo-img"
+            />
+            <div class="logo-text">
+              <span class="logo-title">MONILLA</span>
+              <span class="logo-subtitle">CONCRETE PRODUCTS MANUFACTURING</span>
+            </div>
+          </div>
+
+          <nav class="nav-menu">
+            <a href="index.html#home" class="nav-link">Home</a>
+            <a href="products.html" class="nav-link">Products</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+          </nav>
+
+          <button
+            class="mobile-menu-toggle"
+            id="mobileMenuToggle"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            type="button"
+          >
+            <span></span><span></span><span></span>
+          </button>
+
+          <div class="header-right">
+            <button
+              class="header-icon-btn"
+              id="cartBtn"
+              type="button"
+              aria-label="Shopping cart"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path
+                  d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                ></path>
+              </svg>
+              <span class="header-icon-badge hidden" id="cartBadge">0</span>
+            </button>
+
+            <div class="header-user-wrap" id="headerUserWrap">
+              <button
+                class="header-icon-btn"
+                id="headerUserBtn"
+                aria-label="User account"
+                type="button"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </button>
+              <div class="header-user-dropdown hidden" id="headerUserDropdown">
+                <a href="profile.html" class="header-dropdown-item"
+                  >My Profile</a
+                >
+                <button
+                  class="header-dropdown-item header-dropdown-logout"
+                  id="headerLogoutBtn"
+                  type="button"
+                >
+                  Logout
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section id="contact">
+          <div class="section-header-row">
+            <div class="section-title-bar"></div>
+            <h2 class="section-main-title">Contact Us</h2>
+          </div>
+
+          <div class="section-hero-banner">
+            <img
+              src="images/home_img/ima3.png"
+              alt="Contact Banner"
+              class="hero-bg-img"
+            />
+            <div class="hero-overlay"></div>
+            <div class="hero-content-row">
+              <div class="hero-content-box">
+                <h2 class="hero-content-title">Contact Us</h2>
+                <p class="hero-content-desc">
+                  Get in touch with our team for inquiries, support, or to
+                  request a quote for your next project.
+                </p>
+                <div class="hero-blue-bar"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-section">
+            <form
+              class="contact-form redesigned-contact-form contact-form-margin"
+              autocomplete="off"
+              action="https://formsubmit.co/rumarcatalan@gmail.com"
+              method="POST"
+            >
+              <input
+                type="hidden"
+                name="_subject"
+                value="New Portfolio Contact Message"
+              />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input
+                type="hidden"
+                name="_autoresponse"
+                value="Thank you for your message! I will get back to you as soon as possible."
+              />
+              <input
+                type="hidden"
+                name="_next"
+                value="https://rhum75.github.io/Portfolio"
+              />
+              <h2 class="contact-form-title">Send a Message</h2>
+              <p class="contact-form-subtitle">Let's connect</p>
+              <div class="contact-form-group">
+                <label for="name">Your Name</label
+                ><input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="John Doe"
+                  required
+                />
+              </div>
+              <div class="contact-form-group">
+                <label for="email">Your Email</label
+                ><input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="john@example.com"
+                  required
+                />
+              </div>
+              <div class="contact-form-group">
+                <label for="subject">Subject</label
+                ><input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  placeholder="Project Inquiry"
+                  required
+                />
+              </div>
+              <div class="contact-form-group">
+                <label for="message">Message</label
+                ><textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="Your message here..."
+                  required
+                ></textarea>
+              </div>
+              <div class="contact-form-btn-row">
+                <button
+                  type="submit"
+                  class="contact-form-btn redesigned-contact-btn contact-form-btn-fullwidth"
+                >
+                  Send Message
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <section class="contact-map-section" aria-label="Office location map">
+            <div class="contact-map-container">
+              <h3 class="contact-map-title">Find Us on the Map</h3>
+              <p class="contact-map-address">
+                Mango Village, Salitran IV, Salitran, Dasmariñas, Cavite
+              </p>
+              <div class="contact-map-frame-wrap">
+                <iframe
+                  class="contact-map-frame"
+                  title="Mango Village Salitran Map"
+                  src="https://www.google.com/maps?q=Mango%20Village%2C%20Salitran%20IV%2C%20Salitran%2C%20Dasmari%C3%B1as%2C%20Cavite&output=embed"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </section>
+
+          <div class="branch-contact-section">
+            <div class="branch-contact-container">
+              <div class="branch-contact-list">
+                <div class="branch-contact-row branch-contact-row-bordered">
+                  <div class="branch-contact-icon">
+                    <span class="branch-contact-icon-emoji">🏢</span>
+                  </div>
+                  <div class="branch-contact-details">
+                    <div class="branch-contact-header">
+                      <span class="branch-contact-location">Cavite</span
+                      ><span class="branch-contact-type">(Main Office)</span>
+                    </div>
+                    <div class="branch-contact-info-list">
+                      <div class="branch-contact-info-col">
+                        <div class="branch-contact-info-label">ADDRESS</div>
+                        <div>
+                          Mango Village, Salitran IV, Salitran, Dasmariñas,
+                          Cavite
+                        </div>
+                      </div>
+                      <div class="branch-contact-info-col">
+                        <div class="branch-contact-info-label">PHONE</div>
+                        <div>(+63) 976-012-4416</div>
+                        <div>(+63) 967-528-5806</div>
+                        <div>(+63) 997-742-2101</div>
+                      </div>
+                      <div class="branch-contact-info-col">
+                        <div class="branch-contact-info-label">MOBILE</div>
+                        <div>(Globe) 09950278748</div>
+                        <div>(Sun) 09424703729</div>
+                        <div>(Viber) 09637768861</div>
+                      </div>
+                      <div class="branch-contact-info-col">
+                        <div class="branch-contact-info-label">EMAIL</div>
+                        <div>rumarcatalan@gmail.com</div>
+                        <div
+                          class="branch-contact-info-label branch-contact-info-label-contact"
+                        >
+                          CONTACT
+                        </div>
+                        <div>Efren or Rumar</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="branch-contact-row">
+                  <div class="branch-contact-icon">
+                    <span class="branch-contact-icon-emoji">🏢</span>
+                  </div>
+                  <div class="branch-contact-details">
+                    <div class="branch-contact-header">
+                      <span class="branch-contact-location">Bicol</span>
+                    </div>
+                    <div class="branch-contact-info-list">
+                      <div class="branch-contact-info-col">
+                        <div class="branch-contact-info-label">ADDRESS</div>
+                        <div>Albay, Bicol, Philippines</div>
+                      </div>
+                      <div class="branch-contact-info-col">
+                        <div class="branch-contact-info-label">PHONE</div>
+                        <div>0953-037-2129</div>
+                        <div>0997-742-2101</div>
+                      </div>
+                      <div class="branch-contact-info-col">
+                        <div class="branch-contact-info-label">MOBILE</div>
+                        <div>0953-037-2129</div>
+                        <div>0997-742-2101</div>
+                      </div>
+                      <div class="branch-contact-info-col">
+                        <div class="branch-contact-info-label">EMAIL</div>
+                        <div>rumarcatalan@gmail.com</div>
+                        <div
+                          class="branch-contact-info-label branch-contact-info-label-contact"
+                        >
+                          CONTACT
+                        </div>
+                        <div>Jessie or Rumar</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <section class="feedback-section" aria-label="Customer Feedback">
+            <div class="contact-form-section">
+              <form
+                class="contact-form redesigned-contact-form"
+                autocomplete="off"
+                action="https://formsubmit.co/rumarcatalan@gmail.com"
+                method="POST"
+              >
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value="New Website Feedback"
+                />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_next" value="contact.html" />
+
+                <h2 class="contact-form-title">Share Your Feedback</h2>
+                <p class="contact-form-subtitle">
+                  Tell us how we can improve your experience
+                </p>
+
+                <div class="contact-form-group">
+                  <label for="feedback-name">Your Name</label>
+                  <input
+                    type="text"
+                    id="feedback-name"
+                    name="feedback_name"
+                    placeholder="Juan Dela Cruz"
+                    required
+                  />
+                </div>
+
+                <div class="contact-form-group">
+                  <label for="feedback-rating">Rating</label>
+                  <select id="feedback-rating" name="feedback_rating" required>
+                    <option value="" selected disabled>Select rating</option>
+                    <option value="5">5 - Excellent</option>
+                    <option value="4">4 - Very Good</option>
+                    <option value="3">3 - Good</option>
+                    <option value="2">2 - Fair</option>
+                    <option value="1">1 - Needs Improvement</option>
+                  </select>
+                </div>
+
+                <div class="contact-form-group">
+                  <label for="feedback-message">Feedback</label>
+                  <textarea
+                    id="feedback-message"
+                    name="feedback_message"
+                    rows="5"
+                    placeholder="Share your comments here..."
+                    required
+                  ></textarea>
+                </div>
+
+                <div class="contact-form-btn-row">
+                  <button
+                    type="submit"
+                    class="contact-form-btn redesigned-contact-btn contact-form-btn-fullwidth"
+                  >
+                    Submit Feedback
+                  </button>
+                </div>
+              </form>
+            </div>
+          </section>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-container">
+          <div class="footer-col footer-brand">
+            <div class="footer-logo-row">
+              <svg
+                width="90"
+                height="40"
+                viewBox="0 0 90 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="40" rx="6" fill="#fff" />
+                <text
+                  x="15"
+                  y="25"
+                  font-size="16"
+                  font-weight="bold"
+                  fill="#22307a"
+                >
+                  MCPM
+                </text>
+              </svg>
+              <div class="footer-brand-text">
+                <span class="footer-brand-title"
+                  >CONCRETE PRODUCTS MANUFACTURING</span
+                >
+                <span class="footer-brand-since">SINCE 2010</span>
+              </div>
+            </div>
+            <p class="footer-desc">
+              Since 2010, Monilla Concrete Product Manufacturing has been a
+              trusted provider of precast concrete solutions in the Philippines.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html#home">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Our Products</h4>
+            <ul>
+              <li><a href="index.html#products">Conventional Design</a></li>
+              <li><a href="index.html#products">V-cut Design</a></li>
+              <li><a href="index.html#products">Shiplap Design</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Get In Touch</h4>
+            <ul class="footer-contact">
+              <li>Mango Village, Salitran IV, Dasmarinas, Cavite</li>
+              <li>(+63) 976-012-4416</li>
+              <li>rumarcatalan@gmail.com</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <hr />
+          <p>
+            © 2026 Monilla Concrete Products Manufacturing. All rights reserved.
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="js/cart.js"></script>
+    <script src="js/header-auth.js"></script>
+    <script>
+      (function () {
+        var mobileMenuToggle = document.getElementById("mobileMenuToggle");
+        var navMenu = document.querySelector(".nav-menu");
+        if (!mobileMenuToggle || !navMenu) return;
+
+        mobileMenuToggle.addEventListener("click", function () {
+          var isOpen = navMenu.classList.toggle("mobile-open");
+          mobileMenuToggle.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false",
+          );
+          document.body.classList.toggle("mobile-menu-open", isOpen);
+        });
+      })();
+    </script>
+  </body>
+</html>

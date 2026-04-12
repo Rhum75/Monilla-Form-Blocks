@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | Monilla Website</title>
+    <link rel="icon" type="image/png" href="images/home_product/LOGO.png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="project-wrapper">
+      <header>
+        <div class="header-container">
+          <div class="logo">
+            <img
+              src="images/home_product/LOGO.png"
+              alt="Monilla Concrete Logo"
+              class="logo-img"
+            />
+            <div class="logo-text">
+              <span class="logo-title">MONILLA</span>
+              <span class="logo-subtitle">CONCRETE PRODUCTS MANUFACTURING</span>
+            </div>
+          </div>
+
+          <nav class="nav-menu">
+            <a href="index.html#home" class="nav-link">Home</a>
+            <a href="products.html" class="nav-link">Products</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+          </nav>
+
+          <button
+            class="mobile-menu-toggle"
+            id="mobileMenuToggle"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            type="button"
+          >
+            <span></span><span></span><span></span>
+          </button>
+
+          <div class="header-right">
+            <button
+              class="header-icon-btn"
+              id="cartBtn"
+              type="button"
+              aria-label="Shopping cart"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path
+                  d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                ></path>
+              </svg>
+              <span class="header-icon-badge hidden" id="cartBadge">0</span>
+            </button>
+
+            <div class="header-user-wrap" id="headerUserWrap">
+              <button
+                class="header-icon-btn"
+                id="headerUserBtn"
+                aria-label="User account"
+                type="button"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </button>
+              <div class="header-user-dropdown hidden" id="headerUserDropdown">
+                <a href="profile.html" class="header-dropdown-item"
+                  >My Profile</a
+                >
+                <button
+                  class="header-dropdown-item header-dropdown-logout"
+                  id="headerLogoutBtn"
+                  type="button"
+                >
+                  Logout
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section id="projects">
+          <div class="section-header-row">
+            <div class="section-title-bar"></div>
+            <h2 class="section-main-title">Our Projects</h2>
+          </div>
+
+          <div class="section-hero-banner">
+            <img
+              src="images/home_img/ima2.png"
+              alt="Projects Banner"
+              class="hero-bg-img"
+            />
+            <div class="hero-overlay"></div>
+            <div class="hero-content-row">
+              <div class="hero-content-box">
+                <h2 class="hero-content-title">Our Projects</h2>
+                <p class="hero-content-desc">
+                  See how our products are used in real-world construction and
+                  infrastructure projects across the region.
+                </p>
+                <div class="hero-blue-bar"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-filter-section">
+            <div class="project-filter-container">
+              <div class="project-filters">
+                <button class="project-filter-btn active">All</button>
+                <button class="project-filter-btn">Residential</button>
+                <button class="project-filter-btn">
+                  Commercial / Residential
+                </button>
+                <button class="project-filter-btn">Infrastructure</button>
+                <button class="project-filter-btn">Industrial</button>
+              </div>
+              <div class="project-card-grid">
+                <div class="project-card">
+                  <div class="project-card-img-wrap">
+                    <img
+                      src="images/gallery_img/gal93.png"
+                      alt="Residential Subdivision"
+                      class="project-card-img"
+                    /><span class="project-card-badge residential"
+                      >Residential</span
+                    >
+                  </div>
+                  <div class="project-card-body">
+                    <div class="project-card-title">
+                      Residential Subdivision
+                    </div>
+                    <div class="project-card-desc">
+                      Precast wall form blocks designed to provide stable and
+                      long-lasting walls for residential homes and subdivisions.
+                    </div>
+                    <div class="project-card-meta">
+                      <span>Santa Rosa, Laguna</span> <span>2024</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="project-card">
+                  <div class="project-card-img-wrap">
+                    <img
+                      src="images/gallery_img/gal113.png"
+                      alt="Commercial / Residential"
+                      class="project-card-img"
+                    /><span class="project-card-badge commercial"
+                      >Commercial / Residential</span
+                    >
+                  </div>
+                  <div class="project-card-body">
+                    <div class="project-card-title">Commercial /Warehouse</div>
+                    <div class="project-card-desc">
+                      Durable precast wall form blocks supplied for the
+                      construction of large storage facilities and warehouse
+                      buildings. Industrial Buildings
+                    </div>
+                    <div class="project-card-meta">
+                      <span>Binan, Laguna</span> <span>2024</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="project-card">
+                  <div class="project-card-img-wrap">
+                    <img
+                      src="images/home_img/ima3.png"
+                      alt="Commercial / Residential"
+                      class="project-card-img"
+                    /><span class="project-card-badge commercial"
+                      >Commercial / Residential</span
+                    >
+                  </div>
+                  <div class="project-card-body">
+                    <div class="project-card-title">
+                      Commercial /Public Buildings
+                    </div>
+                    <div class="project-card-desc">
+                      Durable precast wall form blocks supplied for the
+                      construction of large storage facilities and warehouse
+                      buildings. Industrial Building
+                    </div>
+                    <div class="project-card-meta">
+                      <span>Kawit, Cavite</span> <span>2024</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="project-card">
+                  <div class="project-card-img-wrap">
+                    <img
+                      src="images/gallery_img/gal114.png"
+                      alt="Industrial Estate"
+                      class="project-card-img"
+                    /><span class="project-card-badge industrial"
+                      >Industrial</span
+                    >
+                  </div>
+                  <div class="project-card-body">
+                    <div class="project-card-title">Industrial Estate</div>
+                    <div class="project-card-desc">
+                      Durable precast wall form blocks supplied for the
+                      construction of tall buildings, providing strong and
+                      reliable wall systems for multi-level structures.
+                    </div>
+                    <div class="project-card-meta">
+                      <span>Sto. Tomas, Batangas</span> <span>2023</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="project-card">
+                  <div class="project-card-img-wrap">
+                    <img
+                      src="images/home_img/ima2.png"
+                      alt="Industrial Estate"
+                      class="project-card-img"
+                    /><span class="project-card-badge industrial"
+                      >Industrial</span
+                    >
+                  </div>
+                  <div class="project-card-body">
+                    <div class="project-card-title">
+                      Custom / Specialty Projects
+                    </div>
+                    <div class="project-card-desc">
+                      High-strength precast concrete panels delivered for
+                      expansive subdivision projects, enabling rapid
+                      construction of durable housing units.
+                    </div>
+                    <div class="project-card-meta">
+                      <span>Batangas</span> <span>2023</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="project-card">
+                  <div class="project-card-img-wrap">
+                    <img
+                      src="images/gallery_img/gal87.png"
+                      alt="Bridge / Highway"
+                      class="project-card-img"
+                    /><span class="project-card-badge infrastructure"
+                      >Infrastructure</span
+                    >
+                  </div>
+                  <div class="project-card-body">
+                    <div class="project-card-title">Institutional / Public</div>
+                    <div class="project-card-desc">
+                      Durable precast wall form blocks supplied for the
+                      construction of tall buildings, providing strong and
+                      reliable wall systems for multi-level structures.
+                    </div>
+                    <div class="project-card-meta">
+                      <span>Porac, Pampanga</span> <span>2023</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-cta-section">
+            <div class="project-cta-container redesigned-cta">
+              <div class="project-cta-img-wrap redesigned-cta-img-wrap">
+                <img
+                  src="images/home_img/ima1.png"
+                  alt="Ready to Start Project"
+                  class="project-cta-img redesigned-cta-img"
+                />
+              </div>
+              <div class="project-cta-content redesigned-cta-content">
+                <div class="project-cta-label redesigned-cta-label">
+                  BUILD WITH CONFIDENCE
+                </div>
+                <h2 class="project-cta-title redesigned-cta-title">
+                  Ready to Start Your Project?
+                </h2>
+                <p class="project-cta-desc redesigned-cta-desc">
+                  Partner with Monilla Concrete Product Manufacturing for
+                  trusted, high-quality precast solutions for residential,
+                  commercial, industrial projects, etc
+                </p>
+                <div class="project-cta-btn-row redesigned-cta-btn-row">
+                  <a
+                    class="project-cta-btn redesigned-cta-btn primary"
+                    href="contact.html"
+                    >REQUEST A QUOTE</a
+                  >
+                  <a
+                    class="project-cta-btn redesigned-cta-btn secondary"
+                    href="contact.html"
+                    >CALL US NOW</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-container">
+          <div class="footer-col footer-brand">
+            <div class="footer-logo-row">
+              <svg
+                width="90"
+                height="40"
+                viewBox="0 0 90 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="40" rx="6" fill="#fff" />
+                <text
+                  x="15"
+                  y="25"
+                  font-size="16"
+                  font-weight="bold"
+                  fill="#22307a"
+                >
+                  MCPM
+                </text>
+              </svg>
+              <div class="footer-brand-text">
+                <span class="footer-brand-title"
+                  >CONCRETE PRODUCTS MANUFACTURING</span
+                >
+                <span class="footer-brand-since">SINCE 2010</span>
+              </div>
+            </div>
+            <p class="footer-desc">
+              Since 2010, Monilla Concrete Product Manufacturing has been a
+              trusted provider of precast concrete solutions in the Philippines.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html#home">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Our Products</h4>
+            <ul>
+              <li><a href="index.html#products">Conventional Design</a></li>
+              <li><a href="index.html#products">V-cut Design</a></li>
+              <li><a href="index.html#products">Shiplap Design</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Get In Touch</h4>
+            <ul class="footer-contact">
+              <li>Mango Village, Salitran IV, Dasmarinas, Cavite</li>
+              <li>(+63) 976-012-4416</li>
+              <li>rumarcatalan@gmail.com</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <hr />
+          <p>
+            © 2026 Monilla Concrete Products Manufacturing. All rights reserved.
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="js/cart.js"></script>
+    <script src="js/header-auth.js"></script>
+    <script>
+      (function () {
+        var mobileMenuToggle = document.getElementById("mobileMenuToggle");
+        var navMenu = document.querySelector(".nav-menu");
+        if (!mobileMenuToggle || !navMenu) return;
+
+        mobileMenuToggle.addEventListener("click", function () {
+          var isOpen = navMenu.classList.toggle("mobile-open");
+          mobileMenuToggle.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false",
+          );
+          document.body.classList.toggle("mobile-menu-open", isOpen);
+        });
+      })();
+    </script>
+  </body>
+</html>

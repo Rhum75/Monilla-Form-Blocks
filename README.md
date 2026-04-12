@@ -47,8 +47,15 @@ Monilla-Form-Blocks/
 2. Edit `.env` with your own MySQL credentials.
 3. Create database/tables by importing `database/precast.sql` in phpMyAdmin or MySQL CLI.
 4. If your DB already exists, run `database/migrations/002_create_commerce_tables.sql`.
-5. Serve this project with Apache/XAMPP/WAMP so PHP endpoints run.
-6. Open `index.html` from your local server URL.
+5. Run `database/migrations/003_add_user_role.sql` to add role/admin support to existing users tables.
+6. Promote one account to admin:
+
+```sql
+UPDATE users SET role = 'admin' WHERE email = 'you@example.com';
+```
+
+7. Serve this project with Apache/XAMPP/WAMP so PHP endpoints run.
+8. Open `index.html` from your local server URL.
 
 Example local URL:
 
@@ -62,6 +69,7 @@ http://localhost/Monilla-Form-Blocks/login.html
 - `POST backend/login.php`
 - `POST backend/logout.php`
 - `GET backend/me.php`
+- `GET backend/admin/users.php` (admin only)
 - `GET backend/products.php`
 - `GET|POST|PATCH|DELETE backend/cart.php`
 - `POST backend/checkout.php`

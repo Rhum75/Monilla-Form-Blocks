@@ -242,10 +242,10 @@
 
           <nav class="nav-menu">
             <a href="index.html#home" class="nav-link">Home</a>
-            <a href="index.html#products" class="nav-link">Products</a>
-            <a href="index.html#about" class="nav-link">About</a>
-            <a href="index.html#projects" class="nav-link">Projects</a>
-            <a href="index.html#contact" class="nav-link">Contact</a>
+            <a href="products.html" class="nav-link">Products</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+            <a href="contact.html" class="nav-link">Contact</a>
           </nav>
 
           <button
@@ -373,15 +373,37 @@
           var card = document.getElementById("profileCard");
 
           var user = null;
+          var backendReachable = true;
           try {
             var res = await fetch("backend/me.php", {
               credentials: "same-origin",
+              cache: "no-store",
             });
+            if (!res.ok) {
+              backendReachable = false;
+            }
             var data = await res.json();
             if (data.authenticated && data.user) {
               user = data.user;
             }
-          } catch (e) {}
+          } catch (e) {
+            backendReachable = false;
+          }
+
+          if (!backendReachable) {
+            card.innerHTML =
+              '<div class="profile-body" style="padding-top:2.2rem;text-align:left">' +
+              '<h1 class="profile-name" style="font-size:1.25rem;margin-bottom:0.6rem">Unable to load profile</h1>' +
+              '<p class="profile-email" style="margin-bottom:1rem">Your PHP backend is not reachable from this page.</p>' +
+              '<div class="profile-info-list">' +
+              '<div class="profile-info-row"><div class="profile-info-content">' +
+              '<div class="profile-info-label">How to fix</div>' +
+              '<div class="profile-info-value">Open this site from your Apache/XAMPP URL and use the same host and port for login and profile (example: http://localhost/Monilla-Form-Blocks/profile.html).</div>' +
+              "</div></div></div>" +
+              '<div class="profile-btn-group"><a href="login.html" class="profile-btn profile-btn-primary">Go to Sign In</a></div>' +
+              "</div>";
+            return;
+          }
 
           if (!user) {
             // Not logged in — redirect to login

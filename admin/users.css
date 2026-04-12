@@ -1,0 +1,109 @@
+body {
+  margin: 0;
+  font-family: 'Manrope', 'Segoe UI', sans-serif;
+  background: linear-gradient(145deg, #eaf1f7, #f8fbfd);
+  color: #102131;
+}
+
+.users-page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 20px 16px 30px;
+}
+
+.users-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.users-kicker {
+  margin: 0;
+  color: #2d5f8f;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.users-head h1 {
+  margin: 8px 0;
+}
+
+.users-head p {
+  margin: 0;
+  color: #60707e;
+}
+
+.users-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.users-actions a {
+  text-decoration: none;
+  background: #1f3650;
+  color: #fff;
+  padding: 9px 12px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.users-error {
+  margin: 12px 0 0;
+  border: 1px solid #f2c4d0;
+  background: #fff1f5;
+  color: #9a1635;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.users-table-wrap {
+  margin-top: 14px;
+  border: 1px solid #d5dfe8;
+  border-radius: 14px;
+  background: #fff;
+  overflow-x: auto;
+}
+
+.users-table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+}
+
+.users-table th,
+.users-table td {
+  text-align: left;
+  border-bottom: 1px solid #dfe6ed;
+  padding: 11px;
+}
+
+.users-table th {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #637484;
+  font-size: 12px;
+}
+
+.role-pill {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 4px 9px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.role-pill.admin {
+  background: #fef1e3;
+  color: #9b4f14;
+}
+
+.role-pill.user {
+  background: #e9f6ee;
+  color: #0d7b4d;
+}

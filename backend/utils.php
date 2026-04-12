@@ -56,3 +56,15 @@ function requireAuthUser(): array
 
     return $user;
 }
+
+function requireAdminUser(): array
+{
+    $user = requireAuthUser();
+    $role = strtolower((string) ($user['role'] ?? 'user'));
+
+    if ($role !== 'admin') {
+        jsonResponse(['message' => 'Admin access required.'], 403);
+    }
+
+    return $user;
+}

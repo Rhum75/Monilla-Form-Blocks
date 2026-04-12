@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard | Monilla</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-sidebar-brand">
+          <p>Monilla</p>
+          <span>Admin Panel</span>
+        </div>
+
+        <nav class="admin-sidebar-nav" aria-label="Admin Navigation">
+          <a class="is-active" href="dashboard.html">Dashboard</a>
+          <a href="users.html">Users</a>
+          <a href="../index.html">Storefront</a>
+        </nav>
+
+        <button id="adminLogoutBtn" class="admin-logout-btn" type="button">
+          Logout
+        </button>
+      </aside>
+
+      <main class="admin-main">
+        <header class="admin-header">
+          <div>
+            <h1>Dashboard</h1>
+            <p>Overview of users and order activity.</p>
+          </div>
+          <div class="admin-pill" id="adminIdentityPill">Admin</div>
+        </header>
+
+        <section class="admin-stat-grid" aria-label="Summary Statistics">
+          <article class="admin-stat-card">
+            <h2>Total Users</h2>
+            <p id="statTotalUsers">-</p>
+          </article>
+          <article class="admin-stat-card">
+            <h2>New Users Today</h2>
+            <p id="statNewUsersToday">-</p>
+          </article>
+          <article class="admin-stat-card">
+            <h2>Total Orders</h2>
+            <p id="statTotalOrders">-</p>
+          </article>
+          <article class="admin-stat-card">
+            <h2>Pending Orders</h2>
+            <p id="statPendingOrders">-</p>
+          </article>
+          <article class="admin-stat-card admin-stat-wide">
+            <h2>Total Order Value</h2>
+            <p id="statOrderValue">-</p>
+          </article>
+        </section>
+
+        <section class="admin-panel" aria-label="Recent Users">
+          <div class="admin-panel-head">
+            <h2>Recent Signups</h2>
+            <a href="users.html">View full list</a>
+          </div>
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Created</th>
+                </tr>
+              </thead>
+              <tbody id="recentUsersBody">
+                <tr>
+                  <td colspan="5">Loading...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <p class="admin-error" id="adminDashboardError" hidden></p>
+      </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+  </body>
+</html>

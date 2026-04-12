@@ -25,10 +25,10 @@
 
           <nav class="nav-menu">
             <a href="index.html#home" class="nav-link">Home</a>
-            <a href="index.html#products" class="nav-link">Products</a>
-            <a href="index.html#about" class="nav-link">About</a>
-            <a href="index.html#projects" class="nav-link">Projects</a>
-            <a href="index.html#contact" class="nav-link">Contact</a>
+            <a href="products.html" class="nav-link">Products</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+            <a href="contact.html" class="nav-link">Contact</a>
           </nav>
 
           <button
@@ -121,9 +121,154 @@
           <section class="cart-items-panel">
             <div class="cart-panel-title-row">
               <h2 class="cart-panel-title">Selected Products</h2>
-              <a class="cart-panel-link" href="index.html#products">Add More</a>
+              <a class="cart-panel-link" href="products.html">Add More</a>
+            </div>
+            <div class="cart-table-head" aria-hidden="true">
+              <span class="cart-table-col product">Product</span>
+              <span class="cart-table-col price">Price</span>
+              <span class="cart-table-col qty">Quantity</span>
+              <span class="cart-table-col total">Total</span>
+              <span class="cart-table-col action"></span>
             </div>
             <div id="cartItemsList"></div>
+
+            <section class="delivery-info-card" id="deliveryInfoCard">
+              <h3 class="delivery-info-title">Delivery Information</h3>
+
+              <div
+                class="delivery-mode-grid"
+                role="radiogroup"
+                aria-label="Order mode"
+              >
+                <button
+                  class="delivery-mode-btn is-active"
+                  type="button"
+                  data-mode="delivery"
+                  aria-pressed="true"
+                >
+                  Delivery
+                </button>
+                <button
+                  class="delivery-mode-btn"
+                  type="button"
+                  data-mode="pickup"
+                  aria-pressed="false"
+                >
+                  Pick Up
+                </button>
+              </div>
+
+              <div class="delivery-form-grid" id="deliveryFormGrid">
+                <label class="delivery-field">
+                  <span>Full Name</span>
+                  <input
+                    id="deliveryFullName"
+                    type="text"
+                    placeholder="Juan dela Cruz"
+                  />
+                </label>
+
+                <label class="delivery-field">
+                  <span>Phone Number</span>
+                  <input
+                    id="deliveryPhone"
+                    type="text"
+                    placeholder="+63 912 345 6789"
+                  />
+                </label>
+
+                <label
+                  class="delivery-field delivery-field-full is-hidden"
+                  data-pickup-only="true"
+                >
+                  <span>Pick Up Branch</span>
+                  <select id="pickupBranch">
+                    <option
+                      value="Mango Village, Salitran IV, Dasmarinas, Cavite"
+                    >
+                      Main Branch - Mango Village, Salitran IV, Dasmarinas,
+                      Cavite
+                    </option>
+                  </select>
+                </label>
+
+                <label
+                  class="delivery-field delivery-field-full"
+                  data-delivery-only="true"
+                >
+                  <span>Street Address</span>
+                  <input
+                    id="deliveryStreet"
+                    type="text"
+                    placeholder="123 Rizal Street, Brgy San Juan"
+                  />
+                </label>
+
+                <label class="delivery-field" data-delivery-only="true">
+                  <span>City / Municipality</span>
+                  <input
+                    id="deliveryCity"
+                    type="text"
+                    placeholder="Quezon City"
+                  />
+                </label>
+
+                <label class="delivery-field" data-delivery-only="true">
+                  <span>ZIP Code</span>
+                  <input id="deliveryZip" type="text" placeholder="1100" />
+                </label>
+
+                <label
+                  class="delivery-field delivery-field-full"
+                  data-delivery-only="true"
+                >
+                  <span>Delivery Instructions (Optional)</span>
+                  <input
+                    id="deliveryInstructions"
+                    type="text"
+                    placeholder="e.g. Leave at gate, call upon arrival"
+                  />
+                </label>
+              </div>
+
+              <p class="delivery-estimate-note" id="deliveryEstimateNote">
+                Estimated delivery: 1-3 business days.
+              </p>
+
+              <div class="payment-method-box" id="paymentMethodBox">
+                <h4 class="payment-method-title">Payment Method</h4>
+                <div
+                  class="payment-method-grid"
+                  role="radiogroup"
+                  aria-label="Payment method"
+                >
+                  <button
+                    class="payment-method-btn is-active"
+                    type="button"
+                    data-payment="cod"
+                    aria-pressed="true"
+                  >
+                    Cash on Delivery
+                  </button>
+                  <button
+                    class="payment-method-btn"
+                    type="button"
+                    data-payment="gcash"
+                    aria-pressed="false"
+                  >
+                    GCash
+                  </button>
+                  <button
+                    class="payment-method-btn"
+                    type="button"
+                    data-payment="bank"
+                    aria-pressed="false"
+                  >
+                    Bank Transfer
+                  </button>
+                </div>
+              </div>
+            </section>
           </section>
 
           <aside class="cart-summary-panel">
@@ -140,6 +285,12 @@
               <span>Subtotal</span>
               <span class="cart-summary-value" id="cartSubtotal">PHP 0.00</span>
             </div>
+            <div class="cart-summary-row">
+              <span>Delivery Fee (PHP 5 x pcs)</span>
+              <span class="cart-summary-value" id="cartDeliveryFee"
+                >PHP 0.00</span
+              >
+            </div>
             <div class="cart-summary-row cart-summary-row-total">
               <span>Estimated Total</span>
               <span
@@ -152,11 +303,32 @@
               Final total may vary based on delivery and custom requirements.
             </p>
 
+            <div class="cart-order-notes">
+              <label for="cartOrderNotes">Order Notes</label>
+              <textarea
+                id="cartOrderNotes"
+                rows="3"
+                placeholder="Add notes for your order (optional)"
+              ></textarea>
+            </div>
+
+            <div class="cart-payment-badges" aria-label="Accepted payments">
+              <span class="cart-payment-label">Accepted Payments</span>
+              <div class="cart-payment-badge-row">
+                <span class="cart-payment-badge visa">VISA</span>
+                <span class="cart-payment-badge mastercard">MC</span>
+                <span class="cart-payment-badge paypal">PayPal</span>
+              </div>
+            </div>
+
             <div class="cart-actions">
-              <a class="cart-action-btn primary" href="index.html#contact"
+              <a
+                class="cart-action-btn primary"
+                id="proceedInquiryBtn"
+                href="contact.html"
                 >Proceed to Inquiry</a
               >
-              <a class="cart-action-btn" href="index.html#products"
+              <a class="cart-action-btn" href="products.html"
                 >Continue Shopping</a
               >
               <button
@@ -168,6 +340,36 @@
               </button>
             </div>
           </aside>
+        </div>
+
+        <div
+          id="orderPlacedModal"
+          class="order-placed-overlay hidden"
+          aria-hidden="true"
+        >
+          <div
+            class="order-placed-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="orderPlacedTitle"
+          >
+            <div class="order-placed-check">✓</div>
+            <h3 id="orderPlacedTitle">Order Placed!</h3>
+            <p class="order-placed-text">
+              Thank you for choosing Monilla Concrete Products.
+            </p>
+            <p class="order-placed-meta" id="orderPlacedMeta">
+              Delivery - Cash on Delivery - Total PHP 0.00
+            </p>
+            <p class="order-placed-notes" id="orderPlacedNotes">Notes: -</p>
+
+            <div class="order-placed-actions">
+              <a class="order-placed-btn secondary" href="contact.html"
+                >Go to Inquiry</a
+              >
+              <a class="order-placed-btn" href="products.html">Order Again</a>
+            </div>
+          </div>
         </div>
       </main>
     </div>

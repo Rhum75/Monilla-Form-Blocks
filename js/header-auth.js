@@ -26,7 +26,10 @@
         // Check authentication state
         var user = null;
         try {
-            var res = await fetch(base + 'backend/me.php', { credentials: 'same-origin' });
+            var res = await fetch(base + 'backend/me.php', {
+                credentials: 'same-origin',
+                cache: 'no-store'
+            });
             var data = await res.json();
             if (data.authenticated && data.user) {
                 user = data.user;
@@ -40,6 +43,26 @@
             var initials = getInitials(user.name);
             userBtn.innerHTML = '<span class="header-user-avatar">' + initials + '</span>';
             userBtn.setAttribute('aria-label', 'Account menu for ' + user.name);
+
+            // Add admin shortcut for admin accounts.
+            if (dropdown && String(user.role || '').toLowerCase() === 'admin') {
+                var adminHref = base + 'admin/users.html';
+                var existingAdminLink = dropdown.querySelector('a[data-admin-link="true"]');
+
+                if (!existingAdminLink) {
+                    var adminLink = document.createElement('a');
+                    adminLink.className = 'header-dropdown-item';
+                    adminLink.href = adminHref;
+                    adminLink.setAttribute('data-admin-link', 'true');
+                    adminLink.textContent = 'Admin Users';
+
+                    if (logoutBtn && logoutBtn.parentNode === dropdown) {
+                        dropdown.insertBefore(adminLink, logoutBtn);
+                    } else {
+                        dropdown.appendChild(adminLink);
+                    }
+                }
+            }
 
             // Toggle dropdown on click
             userBtn.addEventListener('click', function (e) {
